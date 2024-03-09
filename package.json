@@ -1,0 +1,22 @@
+{
+  "name": "template_playwright",
+  "version": "1.0.0",
+  "description": "template login",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngynhoa210303/playwright_page_object_model_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngynhoa210303/playwright_page_object_model_project/issues"
+  },
+  "homepage": "https://github.com/ngynhoa210303/playwright_page_object_model_project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.25"
+  }
+}
