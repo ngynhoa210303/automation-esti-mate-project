@@ -1,6 +1,6 @@
 # playwright_page_object_model_project
 
-template login
+template tách login từ file login.spec.ts(login.test.ts)->login(logic)+tc
 
 - Step 1 - Create a new folder and open in IDE or Editor (like VS Code)
 
