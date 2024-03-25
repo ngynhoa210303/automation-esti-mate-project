@@ -1,12 +1,4 @@
 export class LoginPage {
-  //   username_textbox: any;
-  // await page.goto('https://dev.esti-mateelectrical.bhsoft.co/login');
-  // await page.locator('input[type="email"]').click();
-  // await page.locator('input[type="email"]').fill('namnn.bhsoft@gmail.com');
-  // await page.locator('input[type="password"]').click();
-  // await page.locator('input[type="password"]').fill('BHTest123');
-  // await page.getByRole('button', { name: 'Sign in' }).click();
-
   page: any;
   email_textbox: any;
   password_textbox: any;
