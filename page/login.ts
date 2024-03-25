@@ -1,9 +1,9 @@
 export class LoginPage {
-  page: any;
-  email_textbox: any;
-  password_textbox: any;
-  login_button: any;
-  url: any;
+  readonly page: any;
+  readonly email_textbox: any;
+  readonly password_textbox: any;
+  readonly login_button: any;
+  readonly url: any;
   constructor(page: any) {
     this.page = page;
     this.url = page.goto("https://dev.esti-mateelectrical.bhsoft.co/login");
