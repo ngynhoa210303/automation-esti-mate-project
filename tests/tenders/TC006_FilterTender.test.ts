@@ -1,21 +1,21 @@
 import { test } from "@playwright/test";
 import * as data from "../../utils/data/login/logindata.cred.json";
+import * as dataSearch from "../../utils/data/tender/data-test-action.cred.json";
 import { LoginPage } from "../../src/page/Login/login";
 import { ClickTender } from "../../src/page/Tender/create-tender/add-tender";
-import { StatusLocator } from "../../src/page/Tender/update-tender/update-status";
-
-test.describe("TC003: Update status tender", () => {
+import { FilterTender } from "../../src/page/Tender/action/filter";
+test.describe("TC006: Search tender", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(data.email, data.password);
   });
-  test("Update status", async ({ page }) => {
+  test("Search tender", async ({ page }) => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
     await delay(2000);
-    const update = new StatusLocator(page);
-    await update.selectFirstProduct();
-    await delay(5000);
+    const filter = new FilterTender(page);
+    await filter.search(dataSearch.search);
+    await delay(3000);
   });
 });
 export async function delay(ms: number) {

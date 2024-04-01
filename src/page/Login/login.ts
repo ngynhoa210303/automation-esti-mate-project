@@ -1,3 +1,10 @@
+import {
+  email_textbox,
+  password_textbox,
+  sign_in_button,
+  url_estimate,
+} from "../../locator/login-locator/login-locator";
+
 export class LoginPage {
   readonly page: any;
   readonly email_textbox: any;
@@ -6,10 +13,10 @@ export class LoginPage {
   readonly url: any;
   constructor(page: any) {
     this.page = page;
-    this.url = page.goto("https://dev.esti-mateelectrical.bhsoft.co/login");
-    this.login_button = page.getByRole("button", { name: "Sign in" });
-    this.email_textbox = page.locator('input[type="email"]');
-    this.password_textbox = page.locator('input[type="password"]');
+    this.url = page.goto(url_estimate);
+    this.login_button = page.locator(sign_in_button);
+    this.email_textbox = page.locator(email_textbox);
+    this.password_textbox = page.locator(password_textbox);
   }
   async login(email: string, password: string) {
     await this.email_textbox.fill(email);

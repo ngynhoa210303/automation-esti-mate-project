@@ -1,19 +1,19 @@
-export class CreateNewTender {
+import {
+  new_tender_button,
+  save_button,
+  tender_in_menu,
+} from "../../../locator/tender-locator/create-tender-locator";
+
+export class ClickTender {
   readonly page: any;
   readonly tender_in_menu: any;
   readonly tender_button: any;
   readonly save_button: any;
   constructor(page: any) {
     this.page = page;
-
-    this.tender_in_menu = page.getByRole("link", {
-      name: "Tenders",
-      exact: true,
-    });
-    this.tender_button = page.locator(
-      '//section//div//div[@id="newTender"]//button'
-    );
-    this.save_button = page.locator("//div[4]/button");
+    this.tender_in_menu = page.locator(tender_in_menu);
+    this.tender_button = page.locator(new_tender_button);
+    this.save_button = page.locator(save_button);
   }
   async clickTender() {
     await this.tender_in_menu.click();
