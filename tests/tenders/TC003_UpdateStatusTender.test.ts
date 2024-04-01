@@ -1,9 +1,10 @@
 import { test } from "@playwright/test";
 import { LoginPage } from "../../page/login";
 import * as data from "../../utils/data/logindata.cred.json";
-import * as status from "../../utils/data/update-status.cred.json";
-import { StatusLocator } from "../../page/update-tender/update-status";
-import { CreateNewTender } from "../../page/create-tender/add-tender";
+import * as status from "../../utils/data/data-test-action.cred.json";
+import { LoginPage } from "../../src/page/login/login/login";
+import { ClickTender } from "../../src/page/tender/create-tender/add-tender";
+import { StatusLocator } from "../../src/page/tender/update-tender/update-status";
 
 test.describe("TC003: Update status tender", () => {
   test.beforeEach(async ({ page }) => {
