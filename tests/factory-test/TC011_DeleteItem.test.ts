@@ -5,13 +5,13 @@ import { LoginPage } from "../../src/page/Login/login";
 import { SearchItemOfFactory } from "../../src/page/Factory/search-item";
 import { DeleteItemOfFactory } from "../../src/page/Factory/delete-item";
 
-test.describe("TC012: Delete item", () => {
+test.describe("TC011: Delete item", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(data.email, data.password);
   });
   test("Delete item", async ({ page }) => {
-    delay(2000);
+    delay(3000);
     const search = new SearchItemOfFactory(page);
     await search.search(dataSearch.search);
     const deleteItem = new DeleteItemOfFactory(page);

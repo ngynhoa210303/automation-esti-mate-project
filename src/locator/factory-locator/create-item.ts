@@ -15,8 +15,9 @@ export const select_options =
 export const type_locator =
   "//label[text() = 'Type']//following::div[1]//select";
 export const type_options =
-  "//div[@class='field is-expanded']//span[@class='select is-fullwidth is-empty']//select";
+  "//label[text() = 'Type']//following::div[1]//select";
 export const factory_locator = "//a[normalize-space()='Factory']";
 export const button_create_locator = "//span[normalize-space()='Create item']";
-export const section_locator = "//div[@class='field is-expanded']//select";
+export const section_locator =
+  "//label[text() = 'Sections']//following::div[1]//select";
 export const create_locator = "//span[normalize-space()='Create']";

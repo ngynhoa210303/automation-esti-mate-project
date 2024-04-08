@@ -28,6 +28,9 @@ export class CreateItemOnFactoryTab {
   readonly create_locator: any;
   readonly button_create_locator: any;
   readonly section_locator: any;
+  readonly type_cabletrays: any[] = ["1", "2", "3"];
+  readonly type_conduits: any[] = ["1", "2", "3", "4", "5", "6", "7"];
+
   constructor(page: any) {
     this.page = page;
     this.material_rate_locator = page.locator(material_rate_locator);
@@ -58,10 +61,31 @@ export class CreateItemOnFactoryTab {
     const randomOption = await this.random(this.select_options);
     await this.uom_locator.selectOption({ value: randomOption });
     await this.partNo_locator.fill(partNo);
+    // const randomOptionSection = await this.randomType(this.section_locator);
+    // const cabletrayValue = "3";
+    // const conduitsValue = "4";
+    // if (randomOptionSection === cabletrayValue) {
+    //   await this.section_locator.selectOption({ value: cabletrayValue });
+    //   const randomOption = await this.randomType2(this.type_cabletrays);
+    //   await this.type_locator.selectOption({ value: randomOption });
+    //   await this.hour_locator.fill(hour);
+    // } else if (randomOptionSection === conduitsValue) {
+    //   await this.section_locator.selectOption({ value: conduitsValue });
+    //   const randomOption = await this.randomType2(this.type_conduits);
+    //   await this.type_locator.selectOption({ value: randomOption });
+    //   await this.hour_locator.fill(hour);
+    // } else {
+    //   await this.section_locator.selectOption({ value: randomOptionSection });
+    //   await this.hour_locator.fill(hour);
+    // }
+    // await this.mins_locator.fill(minute);
+    // await this.create_locator.click();
     const randomOptionSection = await this.randomType(this.section_locator);
     await this.section_locator.selectOption({ value: randomOptionSection });
-    await this.delay(2100);
-    if (!(await this.type_locator.isVisible()) && this.material_rate_locator) {
+    if (
+      (await this.material_rate_locator) &&
+      !(await this.type_locator.isVisible())
+    ) {
       await this.hour_locator.fill(hour);
     } else {
       const randomOption = await this.randomType(this.type_options);
@@ -72,12 +96,44 @@ export class CreateItemOnFactoryTab {
     await this.create_locator.click();
   }
   async randomType(element: any) {
-    const options = await element.evaluate(() => {
-      const options = Array.from(document.querySelectorAll("option"));
-      return options.map((option) => option.value);
-    });
-    const randomIndex = Math.floor(Math.random() * options.length);
-    return options[randomIndex];
+    try {
+      const options = await element.evaluate(
+        (element: { querySelectorAll: (arg0: string) => any }) => {
+          const optionElements = element.querySelectorAll("option");
+          const optionValues: any[] = [];
+          optionElements.forEach(
+            (option: { getAttribute: (arg0: string) => any }) => {
+              const value = option.getAttribute("value");
+              if (value && value.trim() !== "") {
+                optionValues.push(value.trim());
+              }
+            }
+          );
+          return optionValues;
+        }
+      );
+
+      if (options.length === 0) {
+        console.error("Không tìm thấy tùy chọn hợp lệ");
+        return null;
+      }
+
+      const randomIndex = Math.floor(Math.random() * options.length);
+      const randomOption = options[randomIndex];
+      return randomOption;
+    } catch (error) {
+      console.error("Đã xảy ra lỗi khi lấy tùy chọn ngẫu nhiên:", error);
+      return null;
+    }
+  }
+
+  async randomType2(element: any[]) {
+    if (!Array.isArray(element)) {
+      return null;
+    }
+
+    const randomCBB = Math.floor(Math.random() * element.length);
+    return element[randomCBB];
   }
   async random(element: any) {
     const optionsText = await element.innerText();

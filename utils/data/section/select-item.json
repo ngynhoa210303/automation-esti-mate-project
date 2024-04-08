@@ -1,0 +1,92 @@
+[
+  {
+    "locator_section": "#preliminariSection",
+    "add_item_locator": "//div[@id='preliminaries-and-general']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='preliminaries-and-general']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='preliminaries-and-general']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Consumer mains and Submains')]",
+    "add_item_locator": "//div[@id='consumer-mains-and-submains']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='consumer-mains-and-submains']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='consumer-mains-and-submains']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Conduits')]",
+    "add_item_locator": "//div[@id='conduits']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='conduits']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='conduits']//div//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Cable trays')]",
+    "add_item_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Installation of Lighting')]",
+    "add_item_locator": "//div[@class='content overflow-visible']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@class='content overflow-visible']//div[@class='mt-4 has-text-centered']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@class='content overflow-visible']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Installation of Lighting')]",
+    "add_item_locator": "//div[@class='content']//div[@class='content']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@class='content']//div[@class='collapse-content']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@class='content']//div[@class='content']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Installation of Power')]",
+    "add_item_locator": "//div[@id='installation-of-power']//div[@class='text-center']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//span[normalize-space()='Create new item']",
+    "hide_locator": "(//span[contains(text(),'Hide')])[9]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Switchboards')]",
+    "add_item_locator": "//div[@id='switchboards']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='switchboards']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='switchboards']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Communications & NBN')]",
+    "add_item_locator": "//div[@id='communications-&-nbn']//div[@class='text-center']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='communications-&-nbn']//span[contains(text(),'Create new item')]",
+    "hide_locator": "(//span[contains(text(),'Hide')])[15]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'CCTV')]",
+    "add_item_locator": "//div[@id='cctv']//div[@class='text-center']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='cctv']//span[contains(text(),'Create new item')]",
+    "hide_locator": "(//span[contains(text(),'Hide')])[17]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'MATV')]",
+    "add_item_locator": "//div[@id='matv']//div[@class='text-center']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='matv']//span[contains(text(),'Create new item')]",
+    "hide_locator": "(//span[contains(text(),'Hide')])[19]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Fire system')]",
+    "add_item_locator": "//div[@id='fire-system']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='fire-system']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='fire-system']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'PA system')]",
+    "add_item_locator": "//div[@id='pa-system']//div[@class='text-center']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='pa-system']//div[10]//button//span",
+    "hide_locator": "(//span[contains(text(),'Hide')])[12]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Sub-contractors')]",
+    "add_item_locator": "//div[@id='sub-contractors']//div//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='sub-contractors']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='sub-contractors']//span[contains(text(),'Hide')]"
+  },
+  {
+    "locator_section": "//span[contains(text(),'Inspections and Compliance')]",
+    "add_item_locator": "//div[@id='inspections-and-compliance']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='inspections-and-compliance']//div//span[contains(text(),'Create new item')]",
+    "hide_locator": "//div[@id='inspections-and-compliance']//span[contains(text(),'Hide')]"
+  }
+]

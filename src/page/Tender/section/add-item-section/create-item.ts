@@ -1,4 +1,4 @@
-import * as locator from "../../../../../utils/data/section/exclude-derived-item-section.json";
+import * as locator from "../../../../../utils/data/section/add-item-locator.json";
 import {
   create_locator,
   hour_locator,
@@ -14,7 +14,7 @@ import {
 export class CreateItem {
   readonly page: any;
   readonly tender_in_menu: any;
-  readonly preliminaries_tab_locator: any;
+  readonly section_tab_locator: any;
   readonly add_item_locator: any;
   readonly create_item_button_locator: any;
   readonly name_locator: any;
@@ -27,9 +27,15 @@ export class CreateItem {
   readonly type_options: any;
   readonly uom_locator: any;
   readonly create_locator: any;
-  constructor(page: any, i: any) {
+  readonly hide_locator: any;
+  readonly select_item_locator: any;
+  readonly choose_locator: any;
+  readonly table_locator: any;
+  readonly row_locator: any;
+  readonly quantity_text_locator: any;
+  constructor(page: any, nameItem: any, i: any) {
     this.page = page;
-    this.preliminaries_tab_locator = page.locator(locator[i].locator_section);
+    this.section_tab_locator = page.locator(locator[i].locator_section);
     this.add_item_locator = page.locator(locator[i].add_item_locator);
     this.create_item_button_locator = page.locator(
       locator[i].create_item_button_locator
@@ -44,6 +50,18 @@ export class CreateItem {
     this.type_locator = page.locator(type_locator);
     this.select_options = page.locator(select_options);
     this.type_options = page.locator(type_options);
+    this.select_item_locator = page.locator(
+      locator[i].select_add_to_item_locator
+    );
+    this.table_locator = page.locator(locator[i].table_locator);
+    this.row_locator = this.table_locator.locator("tbody >tr ");
+    this.quantity_text_locator = this.row_locator.locator(
+      "(//input[@type='number'])[1]"
+    );
+    this.hide_locator = page.locator(locator[i].hide_locator);
+    this.choose_locator = this.page.locator(
+      "//li[normalize-space()='" + nameItem + "'][1]"
+    );
   }
   async fillToInformation(
     name: string,
@@ -52,7 +70,7 @@ export class CreateItem {
     hour: any,
     minute: any
   ) {
-    await this.preliminaries_tab_locator.click();
+    await this.section_tab_locator.click();
     if (!(await this.add_item_locator.isVisible())) {
       await this.create_item_button_locator.click();
     } else {
@@ -64,7 +82,10 @@ export class CreateItem {
     const randomOption = await this.random(this.select_options);
     await this.uom_locator.selectOption({ value: randomOption });
     await this.partNo_locator.fill(partNo);
-    if (!(await this.type_locator.isVisible()) && this.material_rate_locator) {
+    if (
+      (await this.material_rate_locator) &&
+      !(await this.type_locator.isVisible())
+    ) {
       await this.hour_locator.fill(hour);
     } else {
       const randomOption = await this.randomType(this.type_options);
@@ -73,15 +94,45 @@ export class CreateItem {
     }
     await this.mins_locator.fill(minute);
     await this.create_locator.click();
+    await this.select_item_locator.click();
+
+    await this.select_item_locator.fill(name);
+    await this.choose_locator.click();
+    // await this.quantity_text_locator.fill("4");
+    await this.select_item_locator.click();
+    await this.hide_locator.click();
   }
   async randomType(element: any) {
-    const options = await element.evaluate(() => {
-      const options = Array.from(document.querySelectorAll("option"));
-      return options.map((option) => option.value);
-    });
-    const randomIndex = Math.floor(Math.random() * options.length);
-    return options[randomIndex];
+    try {
+      const options = await element.evaluate(
+        (element: { querySelectorAll: (arg0: string) => any }) => {
+          const optionElements = element.querySelectorAll("option");
+          const optionValues: any[] = [];
+          optionElements.forEach(
+            (option: { getAttribute: (arg0: string) => any }) => {
+              const value = option.getAttribute("value");
+              if (value && value.trim() !== "") {
+                optionValues.push(value.trim());
+              }
+            }
+          );
+          return optionValues;
+        }
+      );
+
+      if (options.length === 0) {
+        console.error("Không tìm thấy tùy chọn hợp lệ");
+        return null;
+      }
+      const randomIndex = Math.floor(Math.random() * options.length);
+      const randomOption = options[randomIndex];
+      return randomOption;
+    } catch (error) {
+      console.error("Đã xảy ra lỗi khi lấy tùy chọn ngẫu nhiên:", error);
+      return null;
+    }
   }
+
   async random(element: any) {
     const optionsText = await element.innerText();
     const optionsArray = optionsText

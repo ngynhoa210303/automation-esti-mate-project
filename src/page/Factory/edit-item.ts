@@ -47,7 +47,7 @@ export class EditItemOfFactory {
     mins: any
   ) {
     await this.factory_tab_locator.click();
-    await this.delay(2000);
+    await this.delay(3000);
     const rows = await this.page.$$("tbody >tr");
     const randomIndex = Math.floor(Math.random() * rows.length);
     const chosenRow = rows[randomIndex];
