@@ -1,12 +1,14 @@
 import { Page, test } from "@playwright/test";
 import {
   confirm_delete_locator,
+  no_data_locator,
   row_locator,
   select_locator,
   table_locator,
   total_tender_locator,
 } from "../../../locator/tender-locator/table-tender-list-locator";
 import { delete_locator } from "../../../locator/tender-locator/delete-locator";
+import { ClickTender } from "../create-tender/add-tender";
 
 export class DeleteTender {
   readonly page: any;
@@ -14,7 +16,6 @@ export class DeleteTender {
   readonly row: any;
   readonly action_select: any;
   readonly first_element_table: any;
-  // readonly paging_locator: any;
   readonly no_data_locator: any;
 
   constructor(page: Page) {
@@ -22,13 +23,14 @@ export class DeleteTender {
     this.table_locator = page.locator(table_locator);
     this.row = this.table_locator.locator(row_locator);
     this.action_select = this.row.locator(select_locator);
-    this.no_data_locator = this.table_locator.locator(
-      "//div[normalize-space()='No data for table']"
-    );
+    this.no_data_locator = this.table_locator.locator(no_data_locator);
   }
   async deleteRandomElement() {
+    await this.page.waitForTimeout(3000);
     if (!(await this.page.locator(total_tender_locator).isVisible())) {
       console.log("Chưa có dữ liệu thêm 1 tender");
+      const newTender = new ClickTender(this.page);
+      await newTender.clickCreate();
       return;
     }
     let before = await this.splitStringTender();
@@ -38,10 +40,9 @@ export class DeleteTender {
       await this.page.reload();
     }
     await this.deleteDetail();
-    await this.delay(2000);
+    await this.page.waitForTimeout(2000);
     if (before != null && before > 1) {
       let after = await this.splitStringTender();
-      console.log("at:" + after);
       if (after != null) {
         if (before == after - 1) {
           test.expect(true).toBeTruthy();
@@ -67,8 +68,5 @@ export class DeleteTender {
     const match = textContent?.match(/\d+/);
     const number: number | null = match ? parseInt(match[0]) : null;
     return number;
-  }
-  async delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }

@@ -12,12 +12,9 @@ test.describe("TC006: Search tender", () => {
   test("Search tender", async ({ page }) => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
-    await delay(2000);
+    await page.waitForTimeout(2000);
     const filter = new FilterTender(page);
     await filter.search(dataSearch.search);
-    await delay(3000);
+    await page.waitForTimeout(3000);
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

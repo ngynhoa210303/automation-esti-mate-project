@@ -1,0 +1,19 @@
+export const name_organization_locator =
+  "//label[text() = 'Name']//following::div[1]//input";
+export const email_text_locator =
+  "//label[text() = 'Email']//following::div[1]//input";
+export const phone_text_locator =
+  "//label[text() = 'Phone']//following::div[1]//input";
+export const address_line1_text_locator =
+  "//label[text() = 'Address Line 1']//following::div[1]//input";
+export const address_line2_text_locator =
+  "//label[text() = 'Address Line 2']//following::div[1]//input";
+export const city_text_locator =
+  "//label[text() = 'City']//following::div[1]//input";
+export const country_select_locator =
+  "//label[text() = 'Country']//following::div[1]//select";
+export const zip_code_locator =
+  "//label[text() = 'Zip code']//following::div[1]//input";
+export const abn_locator = "//label[text() = 'ABN']//following::div[1]//input";
+export const save_button_locator =
+  "//button[@class='button is-pulled-right is-primary']//span[contains(text(),'Save')]";

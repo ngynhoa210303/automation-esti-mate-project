@@ -9,7 +9,6 @@ test.describe("TC013: Edit item", () => {
     await loginPage.login(data.email, data.password);
   });
   test("Edit item", async ({ page }) => {
-    delay(2000);
     const editItem = new EditItemOfFactory(page);
     await editItem.edit(
       dataEditFactory.uom,
@@ -21,6 +20,3 @@ test.describe("TC013: Edit item", () => {
     );
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

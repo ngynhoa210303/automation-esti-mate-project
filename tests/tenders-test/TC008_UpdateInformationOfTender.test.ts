@@ -12,12 +12,12 @@ test.describe("TC008: Update tender", () => {
     await loginPage.login(data.email, data.password);
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
-    await delay(2000);
+    await delay(6000);
   });
   test("Update tender", async ({ page }) => {
     const detail = new DetailTender(page);
     await detail.findTitle();
-    await delay(2000);
+    await page.waitForTimeout(6000);
     const newInput = new FillToInputText(page);
     await newInput.fillInput(
       dataGenenral.title,
@@ -30,15 +30,14 @@ test.describe("TC008: Update tender", () => {
       dataGenenral.reference_no,
       dataGenenral.tags
     );
-    await delay(3000);
   });
   test.afterEach(async ({ page }) => {
     const save = new ClickTender(page);
     await save.save();
     await page.reload();
-    await delay(3000);
+    await page.waitForTimeout(5000);
   });
+  async function delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

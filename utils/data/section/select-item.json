@@ -3,90 +3,128 @@
     "locator_section": "#preliminariSection",
     "add_item_locator": "//div[@id='preliminaries-and-general']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='preliminaries-and-general']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='preliminaries-and-general']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='preliminaries-and-general']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='preliminaries-and-general']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='preliminaries-and-general']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Consumer mains and Submains')]",
     "add_item_locator": "//div[@id='consumer-mains-and-submains']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='consumer-mains-and-submains']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='consumer-mains-and-submains']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='consumer-mains-and-submains']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='consumer-mains-and-submains']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='consumer-mains-and-submains']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Conduits')]",
     "add_item_locator": "//div[@id='conduits']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='conduits']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='conduits']//div//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='conduits']//div//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='conduits']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='conduits']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Cable trays')]",
     "add_item_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='cable-trays']//div//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='cable-trays']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='cable-trays']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Installation of Lighting')]",
     "add_item_locator": "//div[@class='content overflow-visible']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@class='content overflow-visible']//div[@class='mt-4 has-text-centered']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@class='content overflow-visible']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@class='content overflow-visible']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@class='content overflow-visible']//input[@placeholder='Select item to add']",
+    "table_locator": "//table[@letxpath='letxpathtable']"
   },
   {
     "locator_section": "//span[contains(text(),'Installation of Lighting')]",
     "add_item_locator": "//div[@class='content']//div[@class='content']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@class='content']//div[@class='collapse-content']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@class='content']//div[@class='content']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@class='content']//div[@class='content']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@class='content']//div[@class='content']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@class='content']//div[@class='content']//div[@class='b-table']//table"
   },
   {
     "locator_section": "//span[contains(text(),'Installation of Power')]",
     "add_item_locator": "//div[@id='installation-of-power']//div[@class='text-center']//span[contains(text(),'Add new item')]",
-    "create_item_button_locator": "//span[normalize-space()='Create new item']",
-    "hide_locator": "(//span[contains(text(),'Hide')])[9]"
+    "create_item_button_locator": "//div[@class='text-center']//span[contains(text(),'Create new item')]",
+    "hide_locator": "(//span[contains(text(),'Hide')])[9]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[8]",
+    "table_locator": "(//table[@class='table'])[13]"
   },
   {
     "locator_section": "//span[contains(text(),'Switchboards')]",
     "add_item_locator": "//div[@id='switchboards']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='switchboards']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='switchboards']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='switchboards']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='switchboards']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='switchboards']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Communications & NBN')]",
     "add_item_locator": "//div[@id='communications-&-nbn']//div[@class='text-center']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='communications-&-nbn']//span[contains(text(),'Create new item')]",
-    "hide_locator": "(//span[contains(text(),'Hide')])[15]"
+    "hide_locator": "(//span[contains(text(),'Hide')])[15]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[14]",
+    "table_locator": "//div(//table[@class='table'])[22]"
   },
   {
     "locator_section": "//span[contains(text(),'CCTV')]",
     "add_item_locator": "//div[@id='cctv']//div[@class='text-center']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='cctv']//span[contains(text(),'Create new item')]",
-    "hide_locator": "(//span[contains(text(),'Hide')])[17]"
+    "hide_locator": "(//span[contains(text(),'Hide')])[17]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[16]",
+    "table_locator": "(//table[@class='table'])[25]"
   },
   {
     "locator_section": "//span[contains(text(),'MATV')]",
     "add_item_locator": "//div[@id='matv']//div[@class='text-center']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='matv']//span[contains(text(),'Create new item')]",
-    "hide_locator": "(//span[contains(text(),'Hide')])[19]"
+    "hide_locator": "(//span[contains(text(),'Hide')])[19]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[18]",
+    "table_locator": "(//table[@class='table'])[28]"
   },
   {
     "locator_section": "//span[contains(text(),'Fire system')]",
     "add_item_locator": "//div[@id='fire-system']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='fire-system']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='fire-system']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='fire-system']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='fire-system']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='fire-system']//div[@class='b-table']//table[@class='table']"
+  },
+  {
+    "locator_section": "//span[contains(text(),'PA system')]",
+    "add_item_locator": "//div[@id='pa-system']//div[@class='mt-4 has-text-centered']//span[contains(text(),'Add new item')]",
+    "create_item_button_locator": "//div[@id='pa-system']//div[@class='mt-4 has-text-centered']//span[contains(text(),'Create new item')]",
+    "hide_locator": "(//span[contains(text(),'Hide')])[11]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[10]",
+    "table_locator": "//div[@id='pa-system']//div[@class='b-table']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'PA system')]",
     "add_item_locator": "//div[@id='pa-system']//div[@class='text-center']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='pa-system']//div[10]//button//span",
-    "hide_locator": "(//span[contains(text(),'Hide')])[12]"
+    "hide_locator": "(//span[contains(text(),'Hide')])[12]",
+    "select_add_to_item_locator": "(//input[@placeholder='Select item to add'])[11]",
+    "table_locator": "(//table[@class='table'])[18]"
   },
   {
     "locator_section": "//span[contains(text(),'Sub-contractors')]",
     "add_item_locator": "//div[@id='sub-contractors']//div//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='sub-contractors']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='sub-contractors']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='sub-contractors']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='sub-contractors']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='sub-contractors']//table[@class='table']"
   },
   {
     "locator_section": "//span[contains(text(),'Inspections and Compliance')]",
     "add_item_locator": "//div[@id='inspections-and-compliance']//span[contains(text(),'Add new item')]",
     "create_item_button_locator": "//div[@id='inspections-and-compliance']//div//span[contains(text(),'Create new item')]",
-    "hide_locator": "//div[@id='inspections-and-compliance']//span[contains(text(),'Hide')]"
+    "hide_locator": "//div[@id='inspections-and-compliance']//span[contains(text(),'Hide')]",
+    "select_add_to_item_locator": "//div[@id='inspections-and-compliance']//input[@placeholder='Select item to add']",
+    "table_locator": "//div[@id='inspections-and-compliance']//table[@class='table']"
   }
 ]

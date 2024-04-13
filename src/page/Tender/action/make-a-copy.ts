@@ -30,6 +30,6 @@ export class MakeCopyTender {
         break;
       }
     }
-    await this.page.locator(make_copy_locator).first();
+    await this.page.locator(make_copy_locator).first().click();
   }
 }

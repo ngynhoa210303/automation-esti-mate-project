@@ -12,12 +12,8 @@ test.describe("TC003: Update status tender", () => {
   test("Update status", async ({ page }) => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
-    await delay(2000);
+    await page.waitForTimeout(2000);
     const update = new StatusLocator(page);
     await update.selectFirstProduct();
-    await delay(5000);
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

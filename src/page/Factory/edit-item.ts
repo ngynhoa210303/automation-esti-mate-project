@@ -47,28 +47,24 @@ export class EditItemOfFactory {
     mins: any
   ) {
     await this.factory_tab_locator.click();
-    await this.delay(3000);
+    await this.page.waitForTimeout(3000);
     const rows = await this.page.$$("tbody >tr");
     const randomIndex = Math.floor(Math.random() * rows.length);
     const chosenRow = rows[randomIndex];
     const edit_button_locator = await chosenRow.$(edit_button);
     await edit_button_locator.click();
-    // const uom = await this.uom_text_locator.value;
     await this.uom_text_locator.fill(uom);
     await this.name_text_locator.fill(name);
     await this.material_text_locator.fill(materialRate);
     await this.part_no_locator.fill(partNo);
-    const randomOption = await this.random(this.section_locator);
+    const randomOption = await this.randomIndexSection(this.section_locator);
     await this.section_locator.selectOption({ value: randomOption });
     await this.hours_locator.fill(hours);
     await this.mins_locator.fill(mins);
     await this.save_button_locator.click();
-    await this.delay(2000);
+    await this.page.waitForTimeout(2000);
   }
-  async delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-  async random(element: any) {
+  async randomIndexSection(element: any) {
     const options = await element.evaluate(() => {
       const options = Array.from(document.querySelectorAll("option"));
       return options.map((option) => option.value);

@@ -8,12 +8,10 @@ export class DetailTender {
   readonly tableLocator: any;
   readonly row: any;
   readonly detailLocator: any;
-  readonly save_button: any;
   constructor(page: Page) {
     this.page = page;
     this.tableLocator = page.locator(table_locator);
     this.row = this.tableLocator.locator(row_locator);
-    this.save_button = page.locator(save_button);
   }
   async findTitle() {
     const rows = await this.page.$$(row_locator);

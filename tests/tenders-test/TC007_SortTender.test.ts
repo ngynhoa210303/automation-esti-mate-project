@@ -9,13 +9,10 @@ test.describe("TC007: Sort tender", () => {
     await loginPage.login(data.email, data.password);
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
-    await delay(2000);
+    await page.waitForTimeout(2000);
   });
   test("Sort tender", async ({ page }) => {
     const sortTender = new SortTender(page);
     await sortTender.sort();
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

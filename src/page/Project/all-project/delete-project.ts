@@ -5,7 +5,6 @@ import {
   row_locator,
   table_locator,
   action_locator,
-  project_tab_locator,
 } from "../../../locator/project-locator/remove-project-locator";
 
 export class DeleteProject {
@@ -14,18 +13,15 @@ export class DeleteProject {
   readonly row: any;
   readonly action_select: any;
   readonly first_element_table: any;
-  readonly project_tab_locator: any;
 
   constructor(page: Page) {
     this.page = page;
-    this.project_tab_locator = page.locator(project_tab_locator);
     this.table_locator = page.locator(table_locator);
     this.row = this.table_locator.locator(row_locator);
     this.action_select = this.row.locator(action_locator);
   }
   async deleteRandomElement() {
-    await this.project_tab_locator.click();
-    await this.delay(3000);
+    await this.page.waitForTimeout(3000);
     const rows = await this.page.$$(row_locator);
     const randomIndex = Math.floor(Math.random() * rows.length);
     const chosenRow = rows[randomIndex];
@@ -36,8 +32,5 @@ export class DeleteProject {
       .nth(randomIndex);
     await delete_button_locator.click();
     await this.page.locator(confirm_delete_locator).click();
-  }
-  async delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }

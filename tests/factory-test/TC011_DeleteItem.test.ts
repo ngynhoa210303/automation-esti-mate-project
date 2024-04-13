@@ -11,13 +11,10 @@ test.describe("TC011: Delete item", () => {
     await loginPage.login(data.email, data.password);
   });
   test("Delete item", async ({ page }) => {
-    delay(3000);
+    await page.waitForTimeout(3000);
     const search = new SearchItemOfFactory(page);
     await search.search(dataSearch.search);
     const deleteItem = new DeleteItemOfFactory(page);
     await deleteItem.delete();
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

@@ -39,3 +39,9 @@ export const dueYear_locator =
   "//label[text() = 'Due date']//following::div[1]//div[@class='dropdown-menu']//div[@class = 'control'][2]//select";
 export const dueMonth_locator =
   "//label[text() = 'Due date']//following::div[1]//div[@class='dropdown-menu']//div[@class = 'control'][1]//select";
+export const buider_option =
+  "//label[text() = 'Builder status']//following::div[1]//select";
+export const create_day_locator =
+  "//label[text() = 'Creation date']//following::div[1]//div[@class='datepicker-content']//a[@role='button']";
+export const due_day_locator =
+  "//label[text() = 'Due date']//following::div[1]//div[@class='datepicker-content']//a[@role='button']";

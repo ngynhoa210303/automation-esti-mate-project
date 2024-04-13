@@ -17,7 +17,7 @@ test.describe("TC009: Create Item", () => {
   });
   test("Create Item", async ({ page }) => {
     for (let i = 0; i <= 15; i++) {
-      if ((i = 13)) {
+      if (i == 13) {
         const createItem = new CreateItem(page, dataSection.name_PAsys, i);
         await createItem.fillToInformation(
           dataSection.name_PAsys,
@@ -38,7 +38,7 @@ test.describe("TC009: Create Item", () => {
       }
     }
     delay(5000);
-    for (let i = 0; i <= 15; i++) {
+    for (let i = 0; i <= 14; i++) {
       const search = new SearchItemOfFactory(page);
       await search.search(dataSection.name);
       const deleteItem = new DeleteItemOfFactory(page);

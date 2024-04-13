@@ -1,4 +1,14 @@
 import { log } from "console";
+import {
+  add_item_locator,
+  hour_locator,
+  material_text_locator,
+  min_locator,
+  preliminaries_tab_locator,
+  quantity_text_locator,
+  select_item_locator,
+  table_locator,
+} from "../../../../../locator/section-locator/preliminaries-and-general/fill-quantity-and-check-locator";
 
 export class SelectItem {
   readonly page: any;
@@ -11,39 +21,31 @@ export class SelectItem {
   readonly row_locator: any;
   readonly quantity_text_locator: any;
   readonly material_text_locator: any;
+  readonly hour_locator: any;
+  readonly min_locator: any;
   constructor(page: any) {
     this.page = page;
-    this.preliminaries_tab_locator = page.locator(
-      "//span[contains(text(),'Preliminaries and General')]"
-    );
-    this.add_item_locator = page.locator(
-      "//div[@id='preliminaries-and-general']//span[contains(text(),'Add new item')]"
-    );
-    this.select_item_locator = page.locator(
-      "//div[@id='preliminaries-and-general']//input[@placeholder='Select item to add']"
-    );
-    this.table_locator = page.locator(
-      "//div[@id='preliminaries-and-general']//table[@class='table']"
-    );
+    this.preliminaries_tab_locator = page.locator(preliminaries_tab_locator);
+    this.add_item_locator = page.locator(add_item_locator);
+    this.select_item_locator = page.locator(select_item_locator);
+    this.table_locator = page.locator(table_locator);
     this.row_locator = this.table_locator.locator("tbody >tr ");
     this.quantity_text_locator = this.row_locator.locator(
-      "(//input[@type='number'])[1]"
+      quantity_text_locator
     );
     this.material_text_locator = this.row_locator.locator(
-      "(//input[@type='number'])[2]"
+      material_text_locator
     );
+    this.hour_locator = this.row_locator.locator(hour_locator);
+    this.min_locator = this.row_locator.locator(min_locator);
   }
   async chooseItem() {
     await this.preliminaries_tab_locator.click();
     await this.add_item_locator.click();
     await this.select_item_locator.click();
     const options = await this.page.$$("ul li");
-    // for (let i = 0; i < options.length; i++) {
-    //   const text = await options[i].textContent();
-    //   console.log(text);
-    // }
-    const mainput = "(//input[@type='number'])[2]";
-    const quantityValue = parseInt("2");
+    const mainput = quantity_text_locator;
+    const quantityValue = parseFloat("2");
     const randomIndex = Math.floor(Math.random() * options.length);
     const selectedOption = options[randomIndex];
     await selectedOption.click();
@@ -51,32 +53,25 @@ export class SelectItem {
     //Kiem tra Total material
     const inputValue = await this.getValue(mainput);
     const totalMaterial = inputValue * quantityValue;
-    await this.page
-      .locator("(//span[contains(text(),'$" + totalMaterial + "')])[3]")
+    const resultTotalMaterial = await this.row_locator
+      .locator(
+        "//td[@data-label='Total material']//span[contains(text(),'" +
+          totalMaterial +
+          "')]"
+      )
       .isVisible();
-    //Kiem tra Total hours
-    // Đợi cho các ô input trở nên khả dụng
-    await this.page.waitForSelector("(//input[@type='number'])[3]");
-    await this.page.waitForSelector("(//input[@type='number'])[4]");
-
-    // Lấy giá trị của các ô input đã được điền dữ liệu
-    const hourValue = await this.page.$eval(
-      "(//input[@type='number'])[3]",
-      (input: { value: any }) => input.value
-    );
-    const minsValue = await this.page.$eval(
-      "(//input[@type='number'])[4]",
-      (input: { value: any }) => input.value
-    );
-
-    console.log("Hour Value:", hourValue);
-    console.log("Minutes Value:", minsValue);
-
-    const totalHours = (hourValue + minsValue / 60) * quantityValue;
+    console.log("---Result total material:" + resultTotalMaterial);
+    const hourValue = await this.getValue(hour_locator);
+    const minsValue = await this.getValue(min_locator);
+    const mins = minsValue / 60;
+    const totalHours = (hourValue + mins) * quantityValue;
     const totalLine = totalMaterial + totalHours;
-    await this.page
+    const resultTotalHour = await this.page
       .locator("(//span[contains(text(),'$" + totalHours + "')])[1]")
       .isVisible();
+    console.log("---Result total hour:" + resultTotalHour);
+    console.log("hour:" + hourValue);
+
     await this.page
       .locator(
         "//td[@data-label='Line total']//span[contains(text(),'$" +
@@ -84,18 +79,6 @@ export class SelectItem {
           "')]"
       )
       .isVisible();
-    console.log(
-      "(" +
-        hourValue +
-        "+" +
-        minsValue +
-        "/60)*" +
-        quantityValue +
-        "  =" +
-        totalHours
-    );
-    console.log(inputValue + "*" + quantityValue + "=" + totalMaterial);
-    console.log(totalLine);
 
     //td[@data-label='Line total']//span[contains(text(),'$970.00')]
     // await this.select_item_locator.click();
@@ -111,15 +94,6 @@ export class SelectItem {
         input.value;
         const value = parseFloat(input.value).toFixed(2);
         return `${value}`;
-      }
-    );
-    return inputValue;
-  }
-  async getHour(locator: any) {
-    const inputValue = await this.page.$eval(
-      locator,
-      (input: { value: any }) => {
-        return input.value;
       }
     );
     return inputValue;

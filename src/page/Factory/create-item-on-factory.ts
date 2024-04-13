@@ -58,28 +58,9 @@ export class CreateItemOnFactoryTab {
     await this.button_create_locator.click();
     await this.name_locator.fill(name);
     await this.material_rate_locator.fill(materialRate);
-    const randomOption = await this.random(this.select_options);
+    const randomOption = await this.randomOption(this.select_options);
     await this.uom_locator.selectOption({ value: randomOption });
     await this.partNo_locator.fill(partNo);
-    // const randomOptionSection = await this.randomType(this.section_locator);
-    // const cabletrayValue = "3";
-    // const conduitsValue = "4";
-    // if (randomOptionSection === cabletrayValue) {
-    //   await this.section_locator.selectOption({ value: cabletrayValue });
-    //   const randomOption = await this.randomType2(this.type_cabletrays);
-    //   await this.type_locator.selectOption({ value: randomOption });
-    //   await this.hour_locator.fill(hour);
-    // } else if (randomOptionSection === conduitsValue) {
-    //   await this.section_locator.selectOption({ value: conduitsValue });
-    //   const randomOption = await this.randomType2(this.type_conduits);
-    //   await this.type_locator.selectOption({ value: randomOption });
-    //   await this.hour_locator.fill(hour);
-    // } else {
-    //   await this.section_locator.selectOption({ value: randomOptionSection });
-    //   await this.hour_locator.fill(hour);
-    // }
-    // await this.mins_locator.fill(minute);
-    // await this.create_locator.click();
     const randomOptionSection = await this.randomType(this.section_locator);
     await this.section_locator.selectOption({ value: randomOptionSection });
     if (
@@ -112,38 +93,25 @@ export class CreateItemOnFactoryTab {
           return optionValues;
         }
       );
-
-      if (options.length === 0) {
-        console.error("Không tìm thấy tùy chọn hợp lệ");
-        return null;
-      }
-
       const randomIndex = Math.floor(Math.random() * options.length);
       const randomOption = options[randomIndex];
       return randomOption;
     } catch (error) {
-      console.error("Đã xảy ra lỗi khi lấy tùy chọn ngẫu nhiên:", error);
+      console.error("ERROR:", error);
       return null;
     }
   }
 
   async randomType2(element: any[]) {
-    if (!Array.isArray(element)) {
-      return null;
-    }
-
     const randomCBB = Math.floor(Math.random() * element.length);
     return element[randomCBB];
   }
-  async random(element: any) {
+  async randomOption(element: any) {
     const optionsText = await element.innerText();
     const optionsArray = optionsText
       .split("\n")
       .filter((option: string) => option.trim() !== "");
     const randomIndex = Math.floor(Math.random() * optionsArray.length);
     return optionsArray[randomIndex];
-  }
-  async delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }

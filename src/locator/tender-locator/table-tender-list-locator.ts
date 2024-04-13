@@ -17,3 +17,4 @@ export const filter_locator =
   "//div[@class='field w-52 is-floating-label']//select";
 export const total_tender_locator = "//p[@class='text-xl font-bold']";
 export const job_name_locator = "//tr//td[1]//span";
+export const no_data_locator = "//div[normalize-space()='No data for table']";

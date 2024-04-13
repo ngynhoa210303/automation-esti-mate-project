@@ -13,11 +13,8 @@ test.describe("TC005: Make a copy tender", () => {
   test("Make a copy tender", async ({ page }) => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
-    await delay(2000);
+    await page.waitForTimeout(2000);
     const deleteElement = new MakeCopyTender(page);
     await deleteElement.makeACopyElementOfPagination(status.pagination);
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

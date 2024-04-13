@@ -1,4 +1,4 @@
-import * as locator from "../../../../../utils/data/section/add-item-locator.json";
+import * as locator from "../../../../../utils/data/section/select-item.json";
 import {
   create_locator,
   hour_locator,
@@ -32,7 +32,6 @@ export class CreateItem {
   readonly choose_locator: any;
   readonly table_locator: any;
   readonly row_locator: any;
-  readonly quantity_text_locator: any;
   constructor(page: any, nameItem: any, i: any) {
     this.page = page;
     this.section_tab_locator = page.locator(locator[i].locator_section);
@@ -55,9 +54,6 @@ export class CreateItem {
     );
     this.table_locator = page.locator(locator[i].table_locator);
     this.row_locator = this.table_locator.locator("tbody >tr ");
-    this.quantity_text_locator = this.row_locator.locator(
-      "(//input[@type='number'])[1]"
-    );
     this.hide_locator = page.locator(locator[i].hide_locator);
     this.choose_locator = this.page.locator(
       "//li[normalize-space()='" + nameItem + "'][1]"
@@ -79,7 +75,7 @@ export class CreateItem {
     }
     await this.name_locator.fill(name);
     await this.material_rate_locator.fill(materialRate);
-    const randomOption = await this.random(this.select_options);
+    const randomOption = await this.randomValueInOption(this.select_options);
     await this.uom_locator.selectOption({ value: randomOption });
     await this.partNo_locator.fill(partNo);
     if (
@@ -98,7 +94,6 @@ export class CreateItem {
 
     await this.select_item_locator.fill(name);
     await this.choose_locator.click();
-    // await this.quantity_text_locator.fill("4");
     await this.select_item_locator.click();
     await this.hide_locator.click();
   }
@@ -119,11 +114,6 @@ export class CreateItem {
           return optionValues;
         }
       );
-
-      if (options.length === 0) {
-        console.error("Không tìm thấy tùy chọn hợp lệ");
-        return null;
-      }
       const randomIndex = Math.floor(Math.random() * options.length);
       const randomOption = options[randomIndex];
       return randomOption;
@@ -133,7 +123,7 @@ export class CreateItem {
     }
   }
 
-  async random(element: any) {
+  async randomValueInOption(element: any) {
     const optionsText = await element.innerText();
     const optionsArray = optionsText
       .split("\n")

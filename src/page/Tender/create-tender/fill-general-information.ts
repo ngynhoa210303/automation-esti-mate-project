@@ -1,15 +1,17 @@
 import {
+  buider_option,
   builder_status_locator,
   city_locator,
   contact_name_locator,
   createMonth_locator,
   createYear_locator,
+  create_day_locator,
   createdatePicker_locator,
-  day_locator,
   description_locator,
   dueDatePicker_locator,
   dueMonth_locator,
   dueYear_locator,
+  due_day_locator,
   note_locator,
   quote_by_locator,
   reference_no_locator,
@@ -37,17 +39,14 @@ export class FillToInputText {
   readonly createdatePicker_locator: any;
   readonly createYear_locator: any;
   readonly createMonth_locator: any;
-  readonly createDay_locator: any;
   readonly createYear: any;
   readonly createMonth: any;
   readonly dueDatePicker_locator: any;
   readonly dueYear_locator: any;
   readonly dueMonth_locator: any;
-  readonly dueDay_locator: any;
   readonly dueYear: any;
   readonly dueMonth: any;
-  readonly builderSttOptions: any;
-  // = ["Draft", "Pending", "Won", "Lost"];
+  readonly buider_option: any;
   constructor(page: any) {
     this.page = page;
     this.title_locator = page.locator(title_locator);
@@ -67,10 +66,7 @@ export class FillToInputText {
     this.dueDatePicker_locator = page.locator(dueDatePicker_locator);
     this.dueYear_locator = page.locator(dueYear_locator);
     this.dueMonth_locator = page.locator(dueMonth_locator);
-    this.dueDay_locator = page.$$(day_locator);
-    this.builderSttOptions = page.locator(
-      "//label[text() = 'Builder status']//following::div[1]//select"
-    );
+    this.buider_option = page.locator(buider_option);
   }
 
   async fillInput(
@@ -89,7 +85,7 @@ export class FillToInputText {
     await this.take_off_locator.fill(takeOff);
     await this.quote_by_locator.fill(quoteBy);
     await this.contact_name_locator.fill(contactName);
-    const randomOption = await this.random(this.builderSttOptions);
+    const randomOption = await this.randomValueInOption(this.buider_option);
     await this.your_status_locator.selectOption({ value: randomOption });
     await this.builder_status_locator.selectOption({
       value: randomOption,
@@ -97,16 +93,28 @@ export class FillToInputText {
     await this.reference_no_locator.fill(referenceNo);
     await this.createdatePicker_locator.click();
     const currentDate = new Date();
-    const year = { value: currentDate.getFullYear().toString() };
-    const month = { value: (currentDate.getMonth() + 1).toString() };
+    const currentYear = currentDate.getFullYear().toString();
+    const currentMonth = (currentDate.getMonth() + 1).toString();
+    const year = { value: currentYear };
+    const month = { value: currentMonth };
     const day = currentDate.getDate().toString();
     await this.createYear_locator.selectOption(year);
     await this.createMonth_locator.selectOption(month);
-    await this.page.getByRole("button", { name: day }).click();
+    for (const dt of await this.page.$$(create_day_locator)) {
+      if ((await dt.textContent()) == day) {
+        await dt.click();
+        break;
+      }
+    }
     await this.dueDatePicker_locator.click();
     await this.dueYear_locator.selectOption(year);
     await this.dueMonth_locator.selectOption(month);
-    await this.page.getByRole("button", { name: day }).click();
+    for (const date of await this.page.$$(due_day_locator)) {
+      if ((await date.textContent()) == day) {
+        await date.click();
+        break;
+      }
+    }
     await this.description_locator.fill(description);
     for (const tag of tags) {
       await this.tag_locator.fill(tag);
@@ -114,7 +122,7 @@ export class FillToInputText {
     }
     await this.note_locator.fill(notes);
   }
-  async random(element: any) {
+  async randomValueInOption(element: any) {
     const optionsText = await element.innerText();
     const optionsArray = optionsText
       .split("\n")

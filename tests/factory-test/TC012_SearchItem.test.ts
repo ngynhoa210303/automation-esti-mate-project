@@ -9,11 +9,8 @@ test.describe("TC012: Search item", () => {
     await loginPage.login(data.email, data.password);
   });
   test("Search item", async ({ page }) => {
-    delay(2000);
+    await page.waitForTimeout(2000);
     const search = new SearchItemOfFactory(page);
     await search.search(dataSearch.search);
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}

@@ -4,6 +4,8 @@ import * as dataGenenral from "../../utils/data/tender/general-information-data.
 import { ClickTender } from "../../src/page/Tender/create-tender/add-tender";
 import { FillToInputText } from "../../src/page/Tender/create-tender/fill-general-information";
 import { LoginPage } from "../../src/page/Login/login";
+import { FilterTender } from "../../src/page/Tender/action/filter";
+import { DeleteTender } from "../../src/page/Tender/action/delete-tender";
 test.describe("TC002: Fill all create Tender", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -11,7 +13,7 @@ test.describe("TC002: Fill all create Tender", () => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
     await createNewTender.clickCreate();
-    await delay(2000);
+    await page.waitForTimeout(2000);
   });
   test("Fill all input text", async ({ page }) => {
     await fillAll(page);
@@ -19,11 +21,15 @@ test.describe("TC002: Fill all create Tender", () => {
   test.afterEach(async ({ page }) => {
     const save = new ClickTender(page);
     await save.save();
+    const createNewTender = new ClickTender(page);
+    await createNewTender.clickTender();
+    const searchOnly = new FilterTender(page);
+    await searchOnly.searchOnly(dataGenenral.title);
+    const deleteElement = new DeleteTender(page);
+    await deleteElement.deleteRandomElement();
   });
 });
-export async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+
 export async function fillAll(page: Page) {
   const newInput = new FillToInputText(page);
   await newInput.fillInput(
