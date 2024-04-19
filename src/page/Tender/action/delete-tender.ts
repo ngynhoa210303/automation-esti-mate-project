@@ -31,10 +31,13 @@ export class DeleteTender {
       console.log("Chưa có dữ liệu thêm 1 tender");
       const newTender = new ClickTender(this.page);
       await newTender.clickCreate();
+      await this.page.waitForTimeout(3000);
+      await newTender.clickTender();
+      await this.page.waitForTimeout(3000);
+      await this.deleteDetail();
       return;
     }
     let before = await this.splitStringTender();
-    console.log("bf:" + before);
     if (await this.no_data_locator.isVisible()) {
       console.log("Hết dữ liệu 1 trang");
       await this.page.reload();

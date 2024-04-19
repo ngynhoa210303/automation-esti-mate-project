@@ -4,6 +4,8 @@ import {
   desserts_row,
   table_tender_locator,
 } from "../../../locator/tender-locator/sort-locator";
+import { total_tender_locator } from "../../../locator/tender-locator/table-tender-list-locator";
+import { ClickTender } from "../create-tender/add-tender";
 
 export class SortTender {
   readonly page: any;
@@ -18,7 +20,17 @@ export class SortTender {
     this.desserts_row = page.locator(desserts_row);
   }
   async sort() {
-    // await this.desserts_locator.getAttribute(desserts_attribute);
+    if (!(await this.page.locator(total_tender_locator).isVisible())) {
+      console.log("Chưa có dữ liệu thêm 1 tender");
+      const newTender = new ClickTender(this.page);
+      await newTender.clickCreate();
+      await this.page.waitForTimeout(3000);
+      await newTender.clickTender();
+      await this.page.waitForTimeout(3000);
+    }
+    await this.sortAttribute();
+  }
+  async sortAttribute() {
     let count = 0;
     const allText = await this.desserts_row.allTextContents();
     while (count < 3) {

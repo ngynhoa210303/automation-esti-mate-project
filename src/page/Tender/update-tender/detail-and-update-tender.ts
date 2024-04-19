@@ -1,7 +1,11 @@
 import { Page } from "@playwright/test";
-import { table_locator } from "../../../locator/tender-locator/table-tender-list-locator";
+import {
+  table_locator,
+  total_tender_locator,
+} from "../../../locator/tender-locator/table-tender-list-locator";
 import { row_locator } from "../../../locator/tender-locator/table-tender-list-locator";
 import { save_button } from "../../../locator/tender-locator/create-tender-locator";
+import { ClickTender } from "../create-tender/add-tender";
 
 export class DetailTender {
   readonly page: any;
@@ -14,6 +18,14 @@ export class DetailTender {
     this.row = this.tableLocator.locator(row_locator);
   }
   async findTitle() {
+    if (!(await this.page.locator(total_tender_locator).isVisible())) {
+      console.log("Chưa có dữ liệu thêm 1 tender");
+      const newTender = new ClickTender(this.page);
+      await newTender.clickCreate();
+      await this.page.waitForTimeout(3000);
+      await newTender.clickTender();
+      await this.page.waitForTimeout(3000);
+    }
     const rows = await this.page.$$(row_locator);
     const randomIndex = Math.floor(Math.random() * rows.length);
     const chosenRow = rows[randomIndex];

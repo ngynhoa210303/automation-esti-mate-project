@@ -1,11 +1,12 @@
 import {
-  description_cmas_text_locator,
-  quantity_cmas_text_locator,
-  select_item_cmas_locator,
-  table_cmas_locator,
-  total_cmas_table_locator,
-} from "../../../../../locator/section-locator/consumer-mains-and-submains/fill-quantity-and-check-locator";
-export class SelectItemCMAS {
+  description_conduits_text_locator,
+  quantity_conduits_text_locator,
+  select_item_conduits_locator,
+  table_conduits_locator,
+  total_conduits_table_locator,
+} from "../../../../../locator/section-locator/conduits/fill-quantity-and-check-locator";
+
+export class SelectItemConduits {
   readonly page: any;
   readonly select_item_locator: any;
   readonly choose_locator: any;
@@ -15,11 +16,11 @@ export class SelectItemCMAS {
   readonly material_text_locator: any;
   readonly hour_locator: any;
   readonly min_locator: any;
-  readonly description_cmas_text_locator: any;
+  readonly description_text_locator: any;
   constructor(page: any) {
     this.page = page;
-    this.select_item_locator = page.locator(select_item_cmas_locator);
-    this.table_locator = page.locator(table_cmas_locator);
+    this.select_item_locator = page.locator(select_item_conduits_locator);
+    this.table_locator = page.locator(table_conduits_locator);
     this.row_locator = this.table_locator.locator("tbody >tr ");
   }
 
@@ -30,15 +31,15 @@ export class SelectItemCMAS {
     const selectedOption = options[randomIndex];
     await selectedOption.click();
     const quantityLocator = this.row_locator.locator(
-      quantity_cmas_text_locator + "[" + i + "]"
+      quantity_conduits_text_locator + "[" + i + "]"
     );
     await quantityLocator.fill("2");
     const description = this.row_locator.locator(
-      description_cmas_text_locator + "[" + i + "]"
+      description_conduits_text_locator + "[" + i + "]"
     );
-    await description.fill("description" + i);
+    await description.fill("Hi");
     const totalInTable = await this.page
-      .locator(total_cmas_table_locator + "[" + i + "]")
+      .locator(total_conduits_table_locator + "[" + i + "]")
       .innerText();
     const totalInTable1 = parseFloat(
       totalInTable.replace("$", "").replace(",", "")

@@ -90,11 +90,17 @@ export class CreateItem {
     }
     await this.mins_locator.fill(minute);
     await this.create_locator.click();
+  }
+  async selectClick(name: any) {
     await this.select_item_locator.click();
-
     await this.select_item_locator.fill(name);
     await this.choose_locator.click();
     await this.select_item_locator.click();
+  }
+  async hideClick() {
+    if (!(await this.hide_locator.isVisible())) {
+      return;
+    }
     await this.hide_locator.click();
   }
   async randomType(element: any) {

@@ -1,25 +1,20 @@
 import {
-  description_cmas_text_locator,
-  quantity_cmas_text_locator,
-  select_item_cmas_locator,
-  table_cmas_locator,
-  total_cmas_table_locator,
-} from "../../../../../locator/section-locator/consumer-mains-and-submains/fill-quantity-and-check-locator";
-export class SelectItemCMAS {
+  quantity_IAC_text_locator,
+  select_item_IAC_locator,
+  table_IAC_locator,
+  total_IAC_table_locator,
+} from "../../../../../locator/section-locator/inspections-and-compliance/fill-quantity-and-check-locator";
+export class SelectItemInspectionsAndCompliance {
   readonly page: any;
   readonly select_item_locator: any;
   readonly choose_locator: any;
   readonly table_locator: any;
   readonly row_locator: any;
   readonly quantity_text_locator: any;
-  readonly material_text_locator: any;
-  readonly hour_locator: any;
-  readonly min_locator: any;
-  readonly description_cmas_text_locator: any;
   constructor(page: any) {
     this.page = page;
-    this.select_item_locator = page.locator(select_item_cmas_locator);
-    this.table_locator = page.locator(table_cmas_locator);
+    this.select_item_locator = page.locator(select_item_IAC_locator);
+    this.table_locator = page.locator(table_IAC_locator);
     this.row_locator = this.table_locator.locator("tbody >tr ");
   }
 
@@ -29,16 +24,12 @@ export class SelectItemCMAS {
     const randomIndex = Math.floor(Math.random() * options.length);
     const selectedOption = options[randomIndex];
     await selectedOption.click();
-    const quantityLocator = this.row_locator.locator(
-      quantity_cmas_text_locator + "[" + i + "]"
+    const quantityLocator = this.page.locator(
+      quantity_IAC_text_locator + "[" + i + "]"
     );
     await quantityLocator.fill("2");
-    const description = this.row_locator.locator(
-      description_cmas_text_locator + "[" + i + "]"
-    );
-    await description.fill("description" + i);
     const totalInTable = await this.page
-      .locator(total_cmas_table_locator + "[" + i + "]")
+      .locator(total_IAC_table_locator + "[" + i + "]")
       .innerText();
     const totalInTable1 = parseFloat(
       totalInTable.replace("$", "").replace(",", "")

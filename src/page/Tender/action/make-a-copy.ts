@@ -5,7 +5,9 @@ import {
   row_locator,
   select_locator,
   table_locator,
+  total_tender_locator,
 } from "../../../locator/tender-locator/table-tender-list-locator";
+import { ClickTender } from "../create-tender/add-tender";
 
 export class MakeCopyTender {
   readonly page: any;
@@ -23,6 +25,19 @@ export class MakeCopyTender {
     this.paging_locator = page.$$(paging_locator);
   }
   async makeACopyElementOfPagination(pageNo: any) {
+    if (!(await this.page.locator(total_tender_locator).isVisible())) {
+      console.log("Chưa có dữ liệu thêm 1 tender");
+      const newTender = new ClickTender(this.page);
+      await newTender.clickCreate();
+      await this.page.waitForTimeout(3000);
+      await newTender.clickTender();
+      await this.page.waitForTimeout(3000);
+      await this.makeACopyDetail(pageNo);
+      return;
+    }
+    await this.makeACopyDetail(pageNo);
+  }
+  async makeACopyDetail(pageNo: any) {
     await this.table_locator.click();
     for (const dt of await this.paging_locator) {
       if ((await dt.textContent()) == pageNo) {

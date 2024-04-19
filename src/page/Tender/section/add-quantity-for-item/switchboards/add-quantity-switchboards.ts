@@ -1,26 +1,22 @@
 import {
-  description_cmas_text_locator,
-  quantity_cmas_text_locator,
-  select_item_cmas_locator,
-  table_cmas_locator,
-  total_cmas_table_locator,
-} from "../../../../../locator/section-locator/consumer-mains-and-submains/fill-quantity-and-check-locator";
-export class SelectItemCMAS {
+  quantity_switch_text_locator,
+  select_item_switch_locator,
+  table_switch_locator,
+  total_switch_table_locator,
+} from "../../../../../locator/section-locator/switchboards/fill-quantity-and-check-swb-locator";
+
+export class SelectItemSwitchBoards {
   readonly page: any;
-  readonly select_item_locator: any;
   readonly choose_locator: any;
   readonly table_locator: any;
   readonly row_locator: any;
   readonly quantity_text_locator: any;
-  readonly material_text_locator: any;
-  readonly hour_locator: any;
-  readonly min_locator: any;
-  readonly description_cmas_text_locator: any;
+  readonly select_item_locator: any;
   constructor(page: any) {
     this.page = page;
-    this.select_item_locator = page.locator(select_item_cmas_locator);
-    this.table_locator = page.locator(table_cmas_locator);
+    this.table_locator = page.locator(table_switch_locator);
     this.row_locator = this.table_locator.locator("tbody >tr ");
+    this.select_item_locator = page.locator(select_item_switch_locator);
   }
 
   async chooseItem(i: any, totalSum: any) {
@@ -30,15 +26,11 @@ export class SelectItemCMAS {
     const selectedOption = options[randomIndex];
     await selectedOption.click();
     const quantityLocator = this.row_locator.locator(
-      quantity_cmas_text_locator + "[" + i + "]"
+      quantity_switch_text_locator + "[" + i + "]"
     );
-    await quantityLocator.fill("2");
-    const description = this.row_locator.locator(
-      description_cmas_text_locator + "[" + i + "]"
-    );
-    await description.fill("description" + i);
+    await quantityLocator.fill("3");
     const totalInTable = await this.page
-      .locator(total_cmas_table_locator + "[" + i + "]")
+      .locator(total_switch_table_locator + "[" + i + "]")
       .innerText();
     const totalInTable1 = parseFloat(
       totalInTable.replace("$", "").replace(",", "")

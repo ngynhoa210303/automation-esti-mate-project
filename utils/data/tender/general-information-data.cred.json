@@ -1,12 +1,38 @@
-{
-  "title": "BHF",
-  "reference_no": "Perfect night",
-  "city": "Ha Noi City",
-  "take_off": "omo",
-  "quote_by": "Nguyen Thi Hoa",
-  "description": "Tender unit",
-  "builder": "BUILDER",
-  "contact_name": "Nguyen Thi Hoa",
-  "tags": ["BHS", "Bac Ha"],
-  "notes": "NONE"
-}
+[
+  {
+    "title": "BHF",
+    "reference_no": "Perfect night",
+    "city": "Ha Noi City",
+    "take_off": "omo",
+    "quote_by": "Nguyen Thi Hoa",
+    "description": "Tender unit",
+    "builder": "BUILDER",
+    "contact_name": "Nguyen Thi Hoa",
+    "tags": ["BHS", "Bac Ha"],
+    "notes": "NONE"
+  },
+  {
+    "title": "TEST PROJECT",
+    "reference_no": "No1 Test",
+    "city": "Ha Noi City",
+    "take_off": "TEST",
+    "quote_by": "Nguyen Nam",
+    "description": "Tender unit",
+    "builder": "BUILDER",
+    "contact_name": "Nguyen Nam",
+    "tags": ["BHS", "Bac Ha"],
+    "notes": "NONE"
+  },
+  {
+    "title": "TEST CREATE ITEM WITH SECTION",
+    "reference_no": "No2 Test",
+    "city": "Ha Noi City",
+    "take_off": "TEST",
+    "quote_by": "Nguyen Nam",
+    "description": "Tender unit",
+    "builder": "BUILDER",
+    "contact_name": "Nguyen Nam",
+    "tags": ["BHS", "Bac Ha", "SOFT"],
+    "notes": "NONE"
+  }
+]
