@@ -4,10 +4,8 @@ import {
   hours_locator,
   material_text_locator,
   mins_locator,
-  name_text_locator,
   part_no_locator,
   save_button_locator,
-  section_locator,
   table_locator,
   uom_text_locator,
 } from "../../locator/factory-locator/edit-item";
@@ -47,6 +45,17 @@ export class EditWithNewItemOfFactory {
     await this.part_no_locator.fill(partNo);
     await this.hours_locator.fill(hours);
     await this.mins_locator.fill(mins);
+    await this.save_button_locator.click();
+    await this.page.waitForTimeout(2000);
+  }
+  async check() {
+    const rows = await this.page.$$("tbody >tr");
+    const randomIndex = Math.floor(Math.random() * rows.length);
+    const chosenRow = rows[randomIndex];
+    const edit_button_locator = await chosenRow.$(edit_button);
+    await edit_button_locator.click();
+  }
+  async saveData() {
     await this.save_button_locator.click();
     await this.page.waitForTimeout(2000);
   }

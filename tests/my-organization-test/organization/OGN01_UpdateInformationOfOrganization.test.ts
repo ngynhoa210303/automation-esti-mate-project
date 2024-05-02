@@ -7,14 +7,10 @@ dotenv.config();
 test.describe("TC026: Update information of organization", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const EMAIL = process.env.EMAIL;
-    const PASSWORD = process.env.PASSWORD;
-    if (!EMAIL || !PASSWORD) {
-      throw new Error(
-        "Email and/or Password environment variables are not defined."
-      );
-    }
-    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.login(
+      String(process.env.EMAIL),
+      String(process.env.PASSWORD)
+    );
     await page.waitForTimeout(3000);
   });
   test("Update information of organization", async ({ page }) => {

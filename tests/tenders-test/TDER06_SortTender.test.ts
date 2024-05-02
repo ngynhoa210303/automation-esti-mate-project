@@ -9,12 +9,7 @@ test.describe("TC007: Sort tender", () => {
     const loginPage = new LoginPage(page);
     const EMAIL = process.env.EMAIL;
     const PASSWORD = process.env.PASSWORD;
-    if (!EMAIL || !PASSWORD) {
-      throw new Error(
-        "Email and/or Password environment variables are not defined."
-      );
-    }
-    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.login(String(EMAIL), String(PASSWORD));
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
     await page.waitForTimeout(2000);

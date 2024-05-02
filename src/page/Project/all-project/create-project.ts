@@ -1,4 +1,4 @@
-import { Page, test } from "@playwright/test";
+import { Page } from "@playwright/test";
 export class CreateProject {
   readonly page: any;
   readonly new_project_locator: any;

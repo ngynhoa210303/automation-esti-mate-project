@@ -18,14 +18,10 @@ dotenv.config();
 test.describe("TC017: Create project", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const EMAIL = process.env.EMAIL;
-    const PASSWORD = process.env.PASSWORD;
-    if (!EMAIL || !PASSWORD) {
-      throw new Error(
-        "Email and/or Password environment variables are not defined."
-      );
-    }
-    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.login(
+      String(process.env.EMAIL),
+      String(process.env.PASSWORD)
+    );
   });
   test("Create project", async ({ page }) => {
     await createTender(page);

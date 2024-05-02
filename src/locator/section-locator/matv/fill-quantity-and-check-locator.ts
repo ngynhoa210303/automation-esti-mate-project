@@ -1,4 +1,4 @@
-export const matv_tab_locator = "//span[contains(text(),'CCTV')]";
+export const matv_tab_locator = "//span[contains(text(),'MATV')]";
 export const add_item_MATV_locator =
   "//div[@id='matv']//div[@class='text-center']//span[contains(text(),'Add new item')]";
 export const select_item_MATV_locator =

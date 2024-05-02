@@ -11,14 +11,10 @@ import { SearchClient } from "../../../src/page/My-Organization/client/search-cl
 test.describe("TC024: Edit Client", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const EMAIL = process.env.EMAIL;
-    const PASSWORD = process.env.PASSWORD;
-    if (!EMAIL || !PASSWORD) {
-      throw new Error(
-        "Email and/or Password environment variables are not defined."
-      );
-    }
-    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.login(
+      String(process.env.EMAIL),
+      String(process.env.PASSWORD)
+    );
     await page.waitForTimeout(3000);
   });
   test("Edit Client", async ({ page }) => {

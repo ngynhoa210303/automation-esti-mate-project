@@ -7,22 +7,18 @@ dotenv.config();
 test.describe("TC004: Delete tender", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const EMAIL = process.env.EMAIL;
-    const PASSWORD = process.env.PASSWORD;
-    if (!EMAIL || !PASSWORD) {
-      throw new Error(
-        "Email and/or Password environment variables are not defined."
-      );
-    }
-    await loginPage.login(EMAIL, PASSWORD);
+    await loginPage.login(
+      String(process.env.EMAIL),
+      String(process.env.PASSWORD)
+    );
   });
   test("Delete tender", async ({ page }) => {
     const createNewTender = new ClickTender(page);
     await createNewTender.clickTender();
     await page.waitForTimeout(2000);
-    // for (let i = 0; i <= 9; i++) {
-    const deleteElement = new DeleteTender(page);
-    await deleteElement.deleteRandomElement();
-    // }
+    for (let i = 0; i <= 9; i++) {
+      const deleteElement = new DeleteTender(page);
+      await deleteElement.deleteRandomElement();
+    }
   });
 });

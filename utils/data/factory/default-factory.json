@@ -1,0 +1,27 @@
+[
+  {
+    "average_quanlitified": "100",
+    "average_apprentice": "110"
+  },
+  {
+    "labour_site_rate": "60",
+    "overhead_rate": "50"
+  },
+  {
+    "average_feed_lenght_in_M": "21",
+    "average_loop_lenght_in_M": "11"
+  },
+  {
+    "average_feed_lenght_in_M": "11",
+    "average_loop_lenght_in_M": "11"
+  },
+  {
+    "material_mark_up": "30",
+    "markup_on_subcontractors": "40",
+    "sundries": "20",
+    "material_on_light_fittings": "20",
+    "temp_light_and_power": "40",
+    "lost_time": "50"
+  },
+  {}
+]
