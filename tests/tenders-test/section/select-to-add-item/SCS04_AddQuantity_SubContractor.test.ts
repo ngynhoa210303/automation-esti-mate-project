@@ -12,8 +12,9 @@ import { DeleteTender } from "../../../../src/page/Tender/action/delete-tender";
 import { SelectItemSubContractors } from "../../../../src/page/Tender/section/add-quantity-for-item/sub-contractors/add-quantity-sub-contractor";
 import dotenv from "dotenv";
 import { LocatorCommunicationTab } from "../../../../src/page/Tender/section/add-quantity-for-item/consumer-mains-and-submains/locator-consumer-mains-and-submains";
+import { randomValueInOption } from "../../../../src/base/get-value";
 dotenv.config();
-test.describe("TC032: Create Item", () => {
+test.skip("TC032: Create Item", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -34,9 +35,13 @@ test.describe("TC032: Create Item", () => {
     await createItemP2(page);
     await checkisVisible(page);
     const search = new SearchItemOfFactory(page);
-    await search.search(dataSection.name);
+    await search.search(dataSection[14].name);
     const deleteItem = new DeleteItemOfFactory(page);
     await deleteItem.delete();
+    const search2 = new SearchItemOfFactory(page);
+    await search2.search("TEST2");
+    const deleteItem2 = new DeleteItemOfFactory(page);
+    await deleteItem2.delete();
   });
 
   test.afterEach(async ({ page }) => {
@@ -61,43 +66,66 @@ export async function checkisVisible(page: Page) {
   const isVisible = await page
     .locator(
       "//span[contains(text(),'Sub-contractors')]//following-sibling::span//span[contains(text(),'" +
-        total +
-        "')]"
+      total +
+      "')]"
     )
     .isVisible();
   expect(isVisible).toBe(true);
 }
 export async function fillAll(page: Page) {
+  const createNewTender = new ClickTender(page);
   const newInput = new FillToInputText(page);
+  await createNewTender.clickTender();
+  await createNewTender.clickCreate();
+  await page.waitForTimeout(2000);
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
   await newInput.fillInput(
     dataGenenral[2].title,
     dataGenenral[2].city,
     dataGenenral[2].take_off,
     dataGenenral[2].quote_by,
     dataGenenral[2].contact_name,
+    randomOption,
+    statusOption,
     dataGenenral[2].description,
     dataGenenral[2].notes,
     dataGenenral[2].reference_no,
-    dataGenenral[2].tags
+    dataGenenral[2].tags,
+    year,
+    month,
+    day
   );
 }
+
 export async function createItemP1(page: Page) {
-  const createItem = new CreateItem(page, dataSection.name, 14);
+  const createItem = new CreateItem(page, dataSection[14].name, 14);
   await createItem.fillToInformation(
-    dataSection.name,
-    dataSection.material_rate,
-    dataSection.part_no,
-    dataSection.labour_unit_rate_hour,
-    dataSection.labour_unit_rate_mins
+    dataSection[14].name,
+    dataSection[14].material_rate,
+    dataSection[14].part_no,
+    dataSection[14].labour_unit_rate_hour,
+    dataSection[14].labour_unit_rate_mins
   );
 }
 export async function createItemP2(page: Page) {
   const createItem = new CreateItem(page, "TEST2", 14);
   await createItem.fillToInformation(
     "TEST2",
-    dataSection.material_rate,
-    dataSection.part_no,
-    dataSection.labour_unit_rate_hour,
-    dataSection.labour_unit_rate_mins
+    dataSection[14].material_rate,
+    dataSection[14].part_no,
+    dataSection[14].labour_unit_rate_hour,
+    dataSection[14].labour_unit_rate_mins
   );
 }

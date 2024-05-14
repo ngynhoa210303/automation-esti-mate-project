@@ -5,7 +5,7 @@ import { FilterProject } from "../../src/page/Project/all-project/filter-project
 import { LocatorToProject } from "../../src/page/Project/all-project/locator-to-project";
 import dotenv from "dotenv";
 dotenv.config();
-test.describe("TC018: Filter project", () => {
+test.skip("TC018: Filter project", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

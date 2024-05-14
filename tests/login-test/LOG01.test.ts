@@ -38,6 +38,6 @@ test("Login form", async ({ page }) => {
     String(process.env.EMAIL),
     String(process.env.PASSWORD)
   );
-  // await expect(page.locator(home_in_header)).toBeVisible();
+  await expect(page.locator(home_in_header)).toBeVisible();
   await page.waitForTimeout(3000);
 });

@@ -36,17 +36,4 @@ export class PowerSettings {
     await this.average_loop_length_in_M_P_locator.fill(loop);
     await this.save_power_settings_locator.click();
   }
-  async checkExsist(feed: any, loop: any) {
-    await this.power_locator.click();
-    const inputFeedValue = await this.page.$eval(
-      avg_feed_power_locator,
-      (input: { value: any }) => input.value
-    );
-    expect(feed).toBe(inputFeedValue);
-    const inputLoopValue = await this.page.$eval(
-      avg_loop_power_locator,
-      (input: { value: any }) => input.value
-    );
-    expect(loop).toBe(inputLoopValue);
-  }
 }

@@ -14,3 +14,5 @@ export const error_email_and_password_valid =
 export const error_email_wrong_format =
   '//div[@class="control has-icons-right"]/following-sibling::p[1]';
 export const home_in_header = "//a[contains(text(),'Home')]";
+export const account_header = "//a[@role='menuitem']";
+export const sign_out_header = "//a[normalize-space()='Sign out']";

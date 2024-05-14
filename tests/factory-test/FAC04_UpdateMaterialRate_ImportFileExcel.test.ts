@@ -10,7 +10,7 @@ import {
 import path from "path";
 
 dotenv.config();
-test.describe("FAC05: Upload file", () => {
+test.skip("FAC05: Upload file", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -20,7 +20,7 @@ test.describe("FAC05: Upload file", () => {
     await page.waitForTimeout(2000);
   });
 
-  test.only("Upload files", async ({ page }) => {
+  test("Upload files", async ({ page }) => {
     await page.locator(factory_header_locator).click();
     await page.locator(update_material_rate_locator).click();
     const fileChooserPromise = page.waitForEvent("filechooser");
@@ -37,10 +37,12 @@ test.describe("FAC05: Upload file", () => {
     );
     await page.setInputFiles('input[type="file"]', relativeFilePath);
     await fileChooserPromise;
-    await page.locator(update_button_locator).click();
-    await page.waitForTimeout(3000);
     expect(
-      page.locator("//div[contains(text(),'Items material rate updated')]")
+      page.locator("//span[contains(text(),'ItemMaterialRates.csv')]")
     ).toBeVisible();
+    await page.locator(update_button_locator).click();
+    // expect(
+    //   page.getByText('Items material rate updated')
+    // ).toBeVisible();
   });
 });

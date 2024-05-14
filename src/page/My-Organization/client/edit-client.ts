@@ -32,7 +32,6 @@ export class EditClient {
     this.save_button_locator = page.locator(save_button_locator);
   }
   async editClient(name: any, company: any, address: any, city: any, abn: any) {
-    await this.page.waitForTimeout(3000);
     const rows = await this.page.$$("tbody >tr");
     const randomIndex = Math.floor(Math.random() * rows.length);
     const edit_button_locator = await this.edit_button_locator.nth(randomIndex);

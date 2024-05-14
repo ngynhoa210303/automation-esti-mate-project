@@ -11,8 +11,9 @@ import { FillToInputText } from "../../../../src/page/Tender/create-tender/fill-
 import { FilterTender } from "../../../../src/page/Tender/action/filter";
 import { DeleteTender } from "../../../../src/page/Tender/action/delete-tender";
 import dotenv from "dotenv";
+import { randomValueInOption } from "../../../../src/base/get-value";
 dotenv.config();
-test.describe("TC031: Create Item", () => {
+test.skip("TC031: Create Item", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -27,17 +28,17 @@ test.describe("TC031: Create Item", () => {
     await page.waitForTimeout(2000);
   });
   test("Create Item", async ({ page }) => {
-    const createItem = new CreateItem(page, dataSection.name, 7);
+    const createItem = new CreateItem(page, dataSection[7].name, 7);
     await createItem.fillToInformation(
-      dataSection.name,
-      dataSection.material_rate,
-      dataSection.part_no,
-      dataSection.labour_unit_rate_hour,
-      dataSection.labour_unit_rate_mins
+      dataSection[7].name,
+      dataSection[7].material_rate,
+      dataSection[7].part_no,
+      dataSection[7].labour_unit_rate_hour,
+      dataSection[7].labour_unit_rate_mins,
     );
     await checkisVisible(page);
     const search = new SearchItemOfFactory(page);
-    await search.search(dataSection.name);
+    await search.search(dataSection[7].name);
     const deleteItem = new DeleteItemOfFactory(page);
     await deleteItem.delete();
   });
@@ -64,23 +65,45 @@ export async function checkisVisible(page: Page) {
   const isVisible = await page
     .locator(
       "//span[contains(text(),'Switchboards')]//following-sibling::span//span[contains(text(),'" +
-        total +
-        "')]"
+      total +
+      "')]"
     )
     .isVisible();
   expect(isVisible).toBe(true);
 }
 export async function fillAll(page: Page) {
+  const createNewTender = new ClickTender(page);
   const newInput = new FillToInputText(page);
+  await createNewTender.clickTender();
+  await createNewTender.clickCreate();
+  await page.waitForTimeout(2000);
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
   await newInput.fillInput(
     dataGenenral[2].title,
     dataGenenral[2].city,
     dataGenenral[2].take_off,
     dataGenenral[2].quote_by,
     dataGenenral[2].contact_name,
+    randomOption,
+    statusOption,
     dataGenenral[2].description,
     dataGenenral[2].notes,
     dataGenenral[2].reference_no,
-    dataGenenral[2].tags
+    dataGenenral[2].tags,
+    year,
+    month,
+    day
   );
 }

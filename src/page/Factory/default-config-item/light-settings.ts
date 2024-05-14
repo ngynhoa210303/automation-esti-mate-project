@@ -36,17 +36,4 @@ export class LightSettings {
     await this.average_loop_length_in_M_L_locator.fill(loop);
     await this.save_light_settings_locator.click();
   }
-  async checkExsist(feed: any, loop: any) {
-    await this.light_locator.click();
-    const inputFeedValue = await this.page.$eval(
-      avg_feed_light_locator,
-      (input: { value: any }) => input.value
-    );
-    expect(feed).toBe(inputFeedValue);
-    const inputLoopValue = await this.page.$eval(
-      avg_loop_light_locator,
-      (input: { value: any }) => input.value
-    );
-    expect(loop).toBe(inputLoopValue);
-  }
 }

@@ -27,7 +27,7 @@ export class StatusLocator {
     this.paging_locator = page.$$(paging_locator);
   }
 
-  async selectFirstProduct() {
+  async selectFirstProduct(randomOption: any) {
     if (!(await this.page.locator(total_tender_locator).isVisible())) {
       console.log("Chưa có dữ liệu thêm 1 tender");
       const newTender = new ClickTender(this.page);
@@ -40,8 +40,6 @@ export class StatusLocator {
     const randomIndex = Math.floor(Math.random() * rows.length);
     const chosenRow = rows[randomIndex];
     const selectBoxLocator = await chosenRow.$(select_box_locator);
-    const randomCBB = Math.floor(Math.random() * this.sttOptions.length);
-    const randomOption = this.sttOptions[randomCBB];
     await selectBoxLocator.click();
     await selectBoxLocator.selectOption({ value: randomOption });
     await selectBoxLocator.click();

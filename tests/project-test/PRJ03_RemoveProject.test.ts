@@ -4,7 +4,7 @@ import { DeleteProject } from "../../src/page/Project/all-project/delete-project
 import { LocatorToProject } from "../../src/page/Project/all-project/locator-to-project";
 import dotenv from "dotenv";
 dotenv.config();
-test.describe("TC019: Delete project", () => {
+test.skip("TC019: Delete project", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

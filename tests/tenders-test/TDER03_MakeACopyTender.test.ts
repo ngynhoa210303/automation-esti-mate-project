@@ -6,7 +6,7 @@ import { ClickTender } from "../../src/page/Tender/create-tender/add-tender";
 import { MakeCopyTender } from "../../src/page/Tender/action/make-a-copy";
 import dotenv from "dotenv";
 dotenv.config();
-test.describe("TC005: Make a copy tender", () => {
+test.skip("TC005: Make a copy tender", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

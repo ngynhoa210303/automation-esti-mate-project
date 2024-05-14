@@ -1,8 +1,114 @@
-{
-  "name": "JOHN BFR",
-  "name_PAsys": "MR JOHN",
-  "material_rate": "21",
-  "part_no": "No1",
-  "labour_unit_rate_hour": "1",
-  "labour_unit_rate_mins": "0"
-}
+[
+  {
+    "name": "JOHN BFR",
+    "material_rate": "21",
+    "part_no": "No1",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Consumer mains and Submains",
+    "material_rate": "21",
+    "part_no": "No2",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "test3",
+    "material_rate": "21",
+    "part_no": "No3",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Cable trays",
+    "material_rate": "21",
+    "part_no": "No4",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Installation of Lighting 1",
+    "material_rate": "21",
+    "part_no": "No5",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Installation of Lighting 2",
+    "material_rate": "21",
+    "part_no": "No6",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Installation of Power",
+    "material_rate": "21",
+    "part_no": "No7",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Switchboards",
+    "material_rate": "21",
+    "part_no": "No8",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Communications & NBN",
+    "material_rate": "21",
+    "part_no": "No9",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "CCTV",
+    "material_rate": "21",
+    "part_no": "No10",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "MATV",
+    "material_rate": "21",
+    "part_no": "No11",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Fire system",
+    "material_rate": "21",
+    "part_no": "No12",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "PA system 1",
+    "material_rate": "21",
+    "part_no": "No13",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "PA system 2",
+    "material_rate": "21",
+    "part_no": "No14",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Sub-contractors",
+    "material_rate": "21",
+    "part_no": "No15",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  },
+  {
+    "name": "Inspections and Compliance",
+    "material_rate": "21",
+    "part_no": "No16",
+    "labour_unit_rate_hour": "1",
+    "labour_unit_rate_mins": "0"
+  }
+]

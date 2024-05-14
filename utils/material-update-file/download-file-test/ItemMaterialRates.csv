@@ -1,0 +1,274 @@
+Name,Rate,PartNo
+ODA Management and Utilization procedure,100.00,Part A
+Site Establishment,25,Part A
+Tools & consumables weekly,100.00,1
+Labelling,50,
+Maintenance manuals,750,
+As built drawings,750,
+300mm x 1 core XLPE,75.05,CBLXLPE300
+240mm x 1 core XLPE,54.5,CBLXLPE240
+185mm x 1 core XLPE,42.71,CBLXLPE185
+ODA Management and Utilization procedure,100.00,Part A
+120mm x 1 core XLPE,28.16,CBLXLPE120
+95mm x 1 core XLPE,21.45,CBLXLPE95
+70mm x 1 core XLPE,16.34,CBLXLPE70
+50mm x 1 core XLPE,93.95,CBLXLPE50
+35mm x 1 core XLPE,7.45,CBLXLPE35
+25mm x 1 core XLPE,6.51,CBLXLPE25
+70mm 4X1C + E - Orange Circ,106.47,OLX19/214-4ECXLPE1KV
+50mm 4X1C + E - Orange Circ,69.05,CBLOC50.0-4ECXLP
+35mm 4X1C + E - Orange Circ,42.63,CBLOC35.0-4ECXLP
+25mm 4X1C + E - Orange Circ,31.25,CBLOC25.0-4ECXLP
+25mm 2x1C + E - Orange Circ,18.24,CBLOC25.0-2ECXLP
+16mm 4X1C + E Orange Circ,16.2,CBLOC16.0-4ECA5
+16mm 2x1C + E - Orange Circ,12.28,CBLOC16.0-2ECA5
+10mm 4X1C + E - Orange Circ,11.25,CBLOC10.0-4ECA5
+10mm 2C + E,8.21,CBLOC10.0-2ECA5
+6mm 4X1C + E - Orange Circ,7.5,CBLOC6.0-4ECA5
+4mm 4X1C + E - Orange Circ,5.55,CBLOC4.0-4ECA5
+120mm x 1 core Earth,27.03,CBLEW120.0GY
+95mm x 1 core Earth,20.52,CBLEW95.0GY
+70mm x 1 core Earth,15.4,CBLEW70.0GY
+50mm x 1 core Earth,11.58,CBLEW50.0GY
+35mm x 1 core Earth,6.96,CBLEW35.0GY
+25mm x 1 core Earth,5.13,CBLEW25.0GY
+16mm x 1 core Earth,3.12,CBLEW16.0GY
+10mm x 1 core Earth,2.62,CBLEW10.0GY
+6mm x 1 core Earth,1.34,CBLEW6.0GY
+Lug - M10,8,ALCL10M10/25
+150mm conduit HD Solid,121.8,CDT600.150.4
+150mm Elbow HD,161.36,BAYBOS150/90
+125mm conduit HD Solid,134.01,CDT600.125.4
+125mm Elbow HD,65.65,BAYBOS125/90
+100mm conduit HD - Sandwich,46.87,CDT700.100.4
+100mm Elbow HD - Sandwich,20.73,BAYBOS10090
+80mm conduit HD,38.23,CDT600.80.6
+80mm Elbow HD,22,BAYBOS8090
+80mm conduit Comms,4.62,CDT900.80.4
+80mm Elbow Comms,14.3,BAYBCS8090
+63mm conduit HD,29.56,CDT600.63.4
+63mm Elbow HD,8,BAYBOS6390
+50mm conduit NBN,33.66,PIP50NBN
+50mm Sweep NBN,9.7,APPNBNLSB50WH
+50mm conduit HD,16.16,CDT600.50.4
+50mm Elbow HD,8.78,BAYBOS5090
+40mm Conduit HD,13.1,CDT600.40.4
+40mm Elbow HD,7.83,BAYBOS4090
+32mm conduit HD,8.8,CDT600.32.4
+32mm Elbow HD,3.15,BAYBOS3290
+32mm conduit MD,7.77,CDT500.32.4
+32mm Elbow MD,4.96,CLI247/32GY
+25mm conduit MD,5.46,CDT500.25.4
+25mm Elbow MD,3.88,CLI247/25GY
+25mm Coupling,0.61,CLI242/25GY
+In Slab J box,1.45,CLI240/25/4DGY
+50mm Corrigated MD,70.99,HPPCM5010
+32mm Corrigated MD,20.66,HPPCM3210
+25mm Corrigated MD,14.4,HPPCM2510
+Pit 600mm X 600mm Medium Duty,385,
+Pit 450mm X 450mm Medium Duty,250,
+LV Trenching - Per M Rate,30,
+Crushed rock,60,
+10mm All Thread,33.93,UNIUR10H
+Radius Plate LT3,15.85,KOUKT3RPG
+M10 Nuts,0.15,KOUHN10Z
+M10 Bolts,1.75,KOUKTBZ
+Recessed down light,0,
+Surface Mounted Batten,0,
+LED Strip per meter,0,
+Suspended Linear Fitting Per M,0,
+Pendant light fitting (High-Bay/Large Decretive),0,
+Pendant light fitting (Small Globe),0,
+Wall Light,0,
+Emergency light,0,
+Exit light,0,
+Smoke detector,0,CLI755PSMA4
+Exhaust fan,0,CLICE250
+1G,5.75,CLI2031VAWE
+2G,9.1,CLI2032VAWE
+3G,21.27,CLI2033VAWE
+4G,30.26,CLI2034VAWE
+5G,38.75,CLI2035VAWE
+6G,41.15,CLI2036VAWE
+360 Sensor,121.6,CLI753RWE
+180 Sensor,128.31,CLI750WPR5-GY
+Individual switch Mech,7.84,CLI30MWE
+Dimmers,79.05,CLI32ELEDM2-WE
+Twin Active 1.5mm2 TPS,0.82,CBLTW1.5-2RW5
+Double GPO - Clipsal 2000/Trader,7.85,CLI2025WE
+Double GPO - ZEN,58,CLIZ4025-ZW
+GPO - Dedicated Circuit 15/20amp + Oven,15,CLI2025/15WE
+32A Cooktop,25,CLI30M35WE + CLI2031VHWE
+3 Phase Appliance (upto 32A),45,NHPNL340L
+Weather Proof DGPO,21.75,CLIWSC227/2GY
+USB DGPO Clipsal/trader 2000,52.61,CLI2025USBC-WE
+Air Conditioner Circuit 32A,45,NHPNL120L
+2.5mm x 2C & E TPS,1.67,CBLFL2.5-2ERB5
+Mark up and Cut out Power,0,
+6mm x 4C + E O/C,7.5,CBLOC6.0-4ECA5
+6mm x 2C + E (TPS),3.5,CBLFL6.0-2ERB1
+Stud Bracket/C Clips,0.85,CLI154
+Hand Dryer,500,DYSHU02WH
+Clipsal 410 Socket,18.1,CLI410WE
+Floor Box Stainless Steel,750,ECDFB4P
+Detectors (Thermal and Smoke),85.5,
+Horn Speakers,90,
+Speakers,40.3,FRSFS-SP4-7240
+FIP (Addressable),4600,
+Total material,0,
+2 Core Fire cable (flat and twisted),0.8,FRSTPS-1.50-2CT-200
+Cut Out,0,
+Single Data Point,13.45,CLI2031VHWE +  CLI30RJ45SMA6C-WE
+Single TV Point,11.01,CLI2031VHWE + CLI30TV75MSWE
+Double Data Point,23.95,CLI2031VHWE + CLI30RJ45SMA6C-WE x2
+Double TV Point,16.81,CLI2032VHWE + CLI30TV75MSWE X2
+Total patch panels,103.06,CABPC624P
+Total splitters,7.5,MAT17MM-DM06Q
+Cat 6 Cable,0.8,CLI2D4PIPV3BBU
+Coax (RG6) cable,0.38,MAT06MM-E6Q-100M
+Testing,0,
+Patch Panel - Cat6,103.06,CABPC624P
+Splitter,7.5,MAT17MM-DM06Q
+Relocate data point,15,
+Relocate existing MATV points,15,
+Lead in Cable,10,
+Satellite dish,110,
+Comms Rack,450,PFDWR612
+TV Antenna,51,MAT10MM-MD34P
+Fibres,750,
+Amplifiers,150,
+NBN Conduits,120,
+Regenerators,2200,
+Inspections,95,
+Fire Rating Sealant,17.11,BOS30615088
+Heat Shrink 6.4mm,4.5,ALCHSTNW13/6.5RD
+Fire Box,11.3,CLI157/1F
+Mark Out and Cut Out,0,
+Clipsal 413 plug base,2.5,CLI413WE
+Clipsal Quick Connect,4,CLI413QCWE
+1.5mm2 x 2C & E TPS,0.82,CBLFL1.5-2ERB150
+Figure 8 Cable for LEDs,0.58,E-CF2875-500WHE/BLK
+600mm cable tray LT300,93.39,KOUKT360G
+450mm cable tray LT300,62.81,KOUKT345G
+300mm cable tray LT300,43.86,KOUKT330G
+150mm cable tray LT300,32.9,KOUKT315G
+600mm Trapezes,3.83,KOUKLTS60G
+450mm Trapezes,3.83,KOUKLTS45G
+300mm Trapezes,3.83,KOUKLTS30G
+150mm Trapezes,3.83,KOUKLTS15G
+400mm x 1 core XLPE,70.46,CBLXLPE400
+240mm x 1 core XLPE - Flex,45,OLXBESE90AA001CXNA
+185mm x 1 core XLPE - Flex,33.5,OLXBESE89AA001CXNA
+35MM 2xC+E Orange Circ,25.3,CBLOC35.0-2ECXLP
+P20 NBN Conduit,7.66,PIP20NBNCOM/45
+P20 NBN Bend,2.5,APPNBNLSB20WH
+50mm Communication Conduit (Light Grey),16.8,CDT900.50.4
+PE Cell,85,HPMPE170R2
+Reed Switch (Per Door),25,OMRGLS-1 AYX
+Mini Junction Box - Dali Join,3,CLI559/3WE
+Stud Bracket/C Clips,0.85,CLI154
+Prescribed Certificate,38,CESP1
+Non-Prescribed Certificate,8.5,CESNP1
+Starter socket,18,
+1.5mm SDI - Linked to Smoke Detector,0.64,CBLSDI1.5R1
+3 Phase Appliance (Upto 20A),45,NHPNL320L
+2.5mm x 4C + E O/C,3.6,CBLOC2.5-4ECA5
+1.5mm2 x 2C Twin Active,0.82,CBLTW1.5-2RW5
+Stud Bracket,0.85,CLI154
+8inch Ceiling speaker 5watt,90,
+15 Watt Horn Speaker,110,
+8inch Ceiling speaker 5watt Volume,95,
+Total material,0,
+Figure 8 Cable,0.8,MADTCW24BLWH100
+Cut Out,0,
+240watt Power Amp,1100,
+Radio Mic System,11000,
+Desk Mic,150,
+Mic Cable,4.5,
+"Remote Access, Bell and Music Module with Evac",2500,
+Cut Out,0,
+Cut Out,0,
+25A Single Phase Appliance,25,NHPNL132L
+3 Phase Appliance (upto 25A),45,NHPNL340L
+4mm x 4C + E O/C,5.55,CBLOC4.0-4ECA5
+4mm x 2C + E (TPS),2.51,CBLFL4.0-2ERB1
+Garden Light - ELV,0,
+Garden Cable UV,3.3,E-CF56032BK
+Consolidation Point (Upto 6G),65,CLi2036VHwe + CLI30RJ45SMA6C-WE x6
+Lighting Point - No Cut Out (Tbar Panel),0,
+2.5mm2 x 2C & E TPS,1.67,CBLFL2.5-2ERB5
+2.5mm SDI - Linked to Smoke Detector,0.81,CBLSDI2.5R1
+2.5mm2 x 2C Twin Active,1.27,CBLTW2.5-2RW1
+Double CCTV Camera Location,618.36,CLICLP724419
+Cat 6 Cable,0.8,CLI2D4PIPV3BBU
+Testing,0,
+Cut Out,0,
+CCTV Kit (NVR + 4 Cameras),988.33,PSAHLIK-4286TH-AI
+Fibre ( cameras exceeding 90m),750,
+NVR,10,
+CCTV Camera (Each),154.59,CLICLP724419
+Relocate CCTV Point,15,
+Single CCTV Camera Location,154.59,CLICLP724419
+Total patch panels,103.06,CABPC624P
+Masonry Anchors,0.79,KOUDIM10Z
+Hex Nuts,0.15,KOUHN10Z
+Flat Washers,0.1,KOUFW10Z
+Bends,0,
+10mm All Thread,33.93,UNIUR10H
+Risers / Waterfalls,0,
+Tees,0,
+Crosses,0,
+TX Brackets,9.79,KOUKT3TXH
+Splice Plate,1.26,KOUKT3SPG
+Riser link plate,0.79,KOUKT3LPG
+Unique Lighting 1 - (Large installations - Hi Bays etc),0,
+Unique Lighting 2 - (Car Parks - Street Lighting etc),0,
+Unique Lighting 1 Light Point 4mm TPS,2.51,CBLFL4.0-2ERB1
+Unique Lighting 1 Light Point 6mm TPS,3.5,CBLFL6.0-2ERB1
+Unique Lighting 1 Light Point 10mm 2c+e Orange Circ,8.21,CBLOC10.0-2ECA5
+Unique Lighting 1 Light Point 16mm 2c+e Orange Circ,12.28,CBLOC16.0-2ECA5
+Unique Lighting 2 Light Point 4mm TPS,2.51,CBLFL4.0-2ERB1
+Unique Lighting 2 Light Point 6mm TPS,3.5,CBLFL6.0-2ERB1
+Unique Lighting 2 Light Point 10mm 2c+e Orange Circ,8.21,CBLOC10.0-2ECA5
+Unique Lighting 2 Light Point 16mm 2c+e Orange Circ,12.28,CBLOC16.0-2ECA5
+32A Cooktop,25,CLI30M35WE + CLI2031VHWE
+Unique Lighting 1 Light Point 16mm 4c+e Orange Circ,16.2,CBLOC16.0-4ECA5
+Unique Lighting 2 Light Point 16mm 4c+e Orange Circ,16.2,CBLOC16.0-4ECA5
+jj,78.00,677
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+MR JOHN,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+MR JOHN,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1
+JOHN BFR,21,No1

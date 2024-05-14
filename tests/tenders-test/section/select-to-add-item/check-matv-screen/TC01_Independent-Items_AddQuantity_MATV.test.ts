@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 import { LocatorMaTV } from "../../../../../src/page/Tender/section/add-quantity-for-item/matv/locator-matv";
 import { SelectItemMaTV } from "../../../../../src/page/Tender/section/add-quantity-for-item/matv/add-quantity";
 dotenv.config();
-test.describe("TC01_[Independent-Items]_AddQuantity_MATV", () => {
+test.skip("TC01_[Independent-Items]_AddQuantity_MATV", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

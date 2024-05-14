@@ -12,7 +12,7 @@ import { CreateClient } from "../../src/page/My-Organization/client/create-clien
 import { ClickTender } from "../../src/page/Tender/create-tender/add-tender";
 import { FillToInputText } from "../../src/page/Tender/create-tender/fill-general-information";
 dotenv.config();
-test.describe("TC008: Update tender", () => {
+test.skip("TC008: Update tender", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

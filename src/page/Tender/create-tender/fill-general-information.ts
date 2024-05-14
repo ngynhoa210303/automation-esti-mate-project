@@ -75,29 +75,27 @@ export class FillToInputText {
     takeOff: any,
     quoteBy: any,
     contactName: any,
+    randomOption: any,
+    builderOption: any,
     description: any,
     notes: any,
     referenceNo: any,
-    tags: any
+    tags: any,
+    year: any,
+    month: any,
+    day: any
   ) {
     await this.title_locator.fill(title);
     await this.city_locator.fill(city);
     await this.take_off_locator.fill(takeOff);
     await this.quote_by_locator.fill(quoteBy);
     await this.contact_name_locator.fill(contactName);
-    const randomOption = await this.randomValueInOption(this.buider_option);
-    await this.your_status_locator.selectOption({ value: randomOption });
+    await this.your_status_locator.selectOption({ value: builderOption });
     await this.builder_status_locator.selectOption({
       value: randomOption,
     });
     await this.reference_no_locator.fill(referenceNo);
     await this.createdatePicker_locator.click();
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear().toString();
-    const currentMonth = (currentDate.getMonth() + 1).toString();
-    const year = { value: currentYear };
-    const month = { value: currentMonth };
-    const day = currentDate.getDate().toString();
     await this.createYear_locator.selectOption(year);
     await this.createMonth_locator.selectOption(month);
     for (const dt of await this.page.$$(create_day_locator)) {
@@ -122,12 +120,6 @@ export class FillToInputText {
     }
     await this.note_locator.fill(notes);
   }
-  async randomValueInOption(element: any) {
-    const optionsText = await element.innerText();
-    const optionsArray = optionsText
-      .split("\n")
-      .filter((option: string) => option.trim() !== "");
-    const randomIndex = Math.floor(Math.random() * optionsArray.length);
-    return optionsArray[randomIndex];
-  }
 }
+
+

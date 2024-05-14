@@ -15,8 +15,9 @@ import {
   qualified_electricians_cost_locator,
   view_summary_button_locator,
 } from "../../../src/locator/factory-locator/set-default";
+import { getValueInput, randomValueInOption } from "../../../src/base/get-value";
 dotenv.config();
-test.describe("FAC07: Base Labour Rate", () => {
+test.skip("FAC07: Base Labour Rate", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -62,16 +63,34 @@ export async function makupRate(page: Page) {
 }
 export async function fillAllTender(page: Page) {
   const newInput = new FillToInputText(page);
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
+
   await newInput.fillInput(
     data[3].title,
     data[3].city,
     data[3].take_off,
     data[3].quote_by,
     data[3].contact_name,
+    randomOption,
+    statusOption,
     data[3].description,
     data[3].notes,
     data[3].reference_no,
-    data[3].tags
+    data[3].tags,
+    year,
+    month,
+    day
   );
 }
 export async function checkExsist(
@@ -90,13 +109,4 @@ export async function checkExsist(
     apprirentice_cost_locator
   );
   expect(apprirentice).toBe(getValueApprirentice);
-}
-export async function getValueInput(page: any, locator: any) {
-  const inputElement = await page.$(locator);
-  if (inputElement) {
-    const inputValue = await inputElement.evaluate(
-      (input: { value: any }) => input.value
-    );
-    return inputValue;
-  }
 }

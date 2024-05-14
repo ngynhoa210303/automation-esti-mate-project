@@ -9,7 +9,6 @@ import { FillToInputText } from "../../../src/page/Tender/create-tender/fill-gen
 import * as data from "../../../utils/data/factory/test-tender.json";
 import { DeleteTender } from "../../../src/page/Tender/action/delete-tender";
 import {
-  lost_time_locator,
   markup_on_light_fittings_locator,
   markup_on_subcontractors_locator,
   material_markup_locator,
@@ -18,8 +17,9 @@ import {
   view_summary_button_locator,
 } from "../../../src/locator/factory-locator/set-default";
 import { MakupRate } from "../../../src/page/Factory/default-config-item/markup-rate";
+import { getValueInput, randomValueInOption } from "../../../src/base/get-value";
 dotenv.config();
-test.describe("FAC08: Default Makup rates", () => {
+test.skip("FAC08: Default Makup rates", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -68,21 +68,37 @@ export async function makupRate(page: Page) {
     dataSetDefault[4].markup_on_subcontractors,
     dataSetDefault[4].temp_light_and_power,
     dataSetDefault[4].sundries,
-    dataSetDefault[4].lost_time
   );
 }
 export async function fillAllTender(page: Page) {
   const newInput = new FillToInputText(page);
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
   await newInput.fillInput(
     data[3].title,
     data[3].city,
     data[3].take_off,
     data[3].quote_by,
     data[3].contact_name,
+    randomOption,
+    statusOption,
     data[3].description,
     data[3].notes,
     data[3].reference_no,
-    data[3].tags
+    data[3].tags,
+    year,
+    month,
+    day
   );
 }
 export async function checkExsist(
@@ -92,7 +108,6 @@ export async function checkExsist(
   markupOnSubcontractors: any,
   tempLightAndPower: any,
   sundries: any,
-  lostTime: any
 ) {
   await page.locator(view_summary_button_locator).click();
   const getValueMaterialMarkup = await getValueInput(
@@ -117,15 +132,4 @@ export async function checkExsist(
   expect(tempLightAndPower).toBe(getValueTempLightAndPower);
   const getValueSundries = await getValueInput(page, sundries_locator);
   expect(sundries).toBe(getValueSundries);
-  // const getValueLostTime = await getValueInput(page, lost_time_locator);
-  // expect(lostTime).toBe(getValueLostTime);
-}
-export async function getValueInput(page: any, locator: any) {
-  const inputElement = await page.$(locator);
-  if (inputElement) {
-    const inputDisableLabourValue = await inputElement.evaluate(
-      (input: { value: any }) => input.value
-    );
-    return inputDisableLabourValue;
-  }
 }

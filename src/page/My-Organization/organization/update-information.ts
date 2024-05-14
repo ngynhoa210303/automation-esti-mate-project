@@ -57,6 +57,7 @@ export class OrganizationInformation {
     addressLine1: any,
     addressLine2: any,
     city: any,
+    country: any,
     zipCode: any,
     abn: any
   ) {
@@ -68,19 +69,22 @@ export class OrganizationInformation {
     await this.address_line1_text_locator.fill(addressLine1);
     await this.address_line2_text_locator.fill(addressLine2);
     await this.city_text_locator.fill(city);
-    const countryRandom = await this.randomIndexCountry(this.countryRandom);
-    await this.country_select_locator.selectOption({ value: countryRandom });
+    await this.country_select_locator.selectOption({ value: country });
     await this.zip_code_locator.fill(zipCode);
     await this.abn_locator.fill(abn);
     await this.header_background_locator.click();
     await this.save_button_locator.click();
     // await this.header_background_locator.click();
     // await this.header_background_locator.type(fixedColor);
-
     await this.save_button_locator.click();
   }
-  async randomIndexCountry(element: any[]) {
-    const randomCBB = Math.floor(Math.random() * element.length);
-    return element[randomCBB];
-  }
+}
+
+export async function randomIndexCountry1(element: any[]) {
+  const randomCBB = Math.floor(Math.random() * element.length);
+  return element[randomCBB];
+}
+export async function randomIndexCountry(country: any) {
+  const countryRandom = await randomIndexCountry1(country);
+  return countryRandom
 }

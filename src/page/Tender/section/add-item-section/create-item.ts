@@ -64,7 +64,7 @@ export class CreateItem {
     materialRate: any,
     partNo: any,
     hour: any,
-    minute: any
+    minute: any,
   ) {
     await this.section_tab_locator.click();
     if (!(await this.add_item_locator.isVisible())) {

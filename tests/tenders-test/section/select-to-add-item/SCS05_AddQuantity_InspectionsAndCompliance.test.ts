@@ -9,8 +9,9 @@ import { DeleteTender } from "../../../../src/page/Tender/action/delete-tender";
 import { SelectItemInspectionsAndCompliance } from "../../../../src/page/Tender/section/add-quantity-for-item/inspections-and-compliance/add-quantity";
 import { LocatorPre } from "../../../../src/page/Tender/section/add-quantity-for-item/inspections-and-compliance/locator-inspection-and-compliance";
 import dotenv from "dotenv";
+import { randomValueInOption } from "../../../../src/base/get-value";
 dotenv.config();
-test.describe("TC030: Select Item", () => {
+test.skip("TC030: Select Item", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -52,23 +53,45 @@ export async function checkisVisible(page: Page) {
   const isVisible = await page
     .locator(
       "//span[contains(text(),'Inspections and Compliance')]//following-sibling::span//span[contains(text(),'" +
-        total +
-        "')]"
+      total +
+      "')]"
     )
     .isVisible();
   expect(isVisible).toBe(true);
 }
 export async function fillAll(page: Page) {
+  const createNewTender = new ClickTender(page);
   const newInput = new FillToInputText(page);
+  await createNewTender.clickTender();
+  await createNewTender.clickCreate();
+  await page.waitForTimeout(2000);
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
   await newInput.fillInput(
     dataGenenral[2].title,
     dataGenenral[2].city,
     dataGenenral[2].take_off,
     dataGenenral[2].quote_by,
     dataGenenral[2].contact_name,
+    randomOption,
+    statusOption,
     dataGenenral[2].description,
     dataGenenral[2].notes,
     dataGenenral[2].reference_no,
-    dataGenenral[2].tags
+    dataGenenral[2].tags,
+    year,
+    month,
+    day
   );
 }

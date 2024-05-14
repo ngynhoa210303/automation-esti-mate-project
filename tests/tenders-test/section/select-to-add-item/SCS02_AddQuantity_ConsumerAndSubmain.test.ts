@@ -9,8 +9,9 @@ import { DeleteTender } from "../../../../src/page/Tender/action/delete-tender";
 import { LocatorCommunicationTab } from "../../../../src/page/Tender/section/add-quantity-for-item/consumer-mains-and-submains/locator-consumer-mains-and-submains";
 import { SelectItemCMAS } from "../../../../src/page/Tender/section/add-quantity-for-item/consumer-mains-and-submains/add-quantity";
 import dotenv from "dotenv";
+import { randomValueInOption } from "../../../../src/base/get-value";
 dotenv.config();
-test.describe("TC028: Add quantity ", () => {
+test.describe("SCS02: Add Quantity Consumer And Submain", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -54,16 +55,38 @@ export async function checkisVisible(page: Page) {
   expect(isVisible).toBe(true);
 }
 export async function fillAll(page: Page) {
+  const createNewTender = new ClickTender(page);
   const newInput = new FillToInputText(page);
+  await createNewTender.clickTender();
+  await createNewTender.clickCreate();
+  await page.waitForTimeout(2000);
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = (currentDate.getMonth() + 1)
+  const year = { value: (currentYear.toString()) };
+  const month = { value: (currentMonth.toString()) };
+  const day = currentDate.getDate().toString();
+  const randomOption = await randomValueInOption(
+    newInput.builder_status_locator,
+  );
+  const statusOption = await randomValueInOption(
+    newInput.your_status_locator,
+  );
   await newInput.fillInput(
     dataGenenral[2].title,
     dataGenenral[2].city,
     dataGenenral[2].take_off,
     dataGenenral[2].quote_by,
     dataGenenral[2].contact_name,
+    randomOption,
+    statusOption,
     dataGenenral[2].description,
     dataGenenral[2].notes,
     dataGenenral[2].reference_no,
-    dataGenenral[2].tags
+    dataGenenral[2].tags,
+    year,
+    month,
+    day
   );
 }

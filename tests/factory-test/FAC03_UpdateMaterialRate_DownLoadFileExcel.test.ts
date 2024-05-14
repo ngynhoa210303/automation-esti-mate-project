@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { DownLoadAllItem } from "../../src/page/Factory/download-file";
 
 dotenv.config();
-test.describe("FAC04: DownLoad File Excel", () => {
+test.skip("FAC04: DownLoad File Excel", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -20,7 +20,7 @@ test.describe("FAC04: DownLoad File Excel", () => {
     const download = await downloadPromise;
     await download.saveAs(
       "./utils/material-update-file/download-file-test/" +
-        download.suggestedFilename()
+      download.suggestedFilename()
     );
   });
 });

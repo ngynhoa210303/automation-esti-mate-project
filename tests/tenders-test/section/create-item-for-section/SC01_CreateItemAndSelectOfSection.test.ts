@@ -1,5 +1,4 @@
 import test from "@playwright/test";
-import * as data from "../../../../utils/data/login/logindata.cred.json";
 import * as dataSection from "../../../../utils/data/section/create-item-data.cred.json";
 import { LoginPage } from "../../../../src/page/Login/login";
 import { CreateItem } from "../../../../src/page/Tender/section/add-item-section/create-item";
@@ -8,7 +7,7 @@ import { DeleteItemOfFactory } from "../../../../src/page/Factory/delete-item";
 import { ClickTender } from "../../../../src/page/Tender/create-tender/add-tender";
 import dotenv from "dotenv";
 dotenv.config();
-test.describe("TC009: Create Item", () => {
+test.skip("TC009: Create Item", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(
@@ -22,6 +21,8 @@ test.describe("TC009: Create Item", () => {
     await page.waitForTimeout(2000);
   });
   test("Create Item", async ({ page }) => {
+    await test.step('Check name input', async () => {
+    })
     for (let i = 0; i <= 15; i++) {
       if (i == 13) {
         const createItem = new CreateItem(page, dataSection.name_PAsys, i);

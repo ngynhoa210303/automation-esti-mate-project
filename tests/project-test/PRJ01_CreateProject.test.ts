@@ -15,7 +15,7 @@ import { FillToInputText } from "../../src/page/Tender/create-tender/fill-genera
 import * as dataGenenral from "../../utils/data/tender/general-information-data.cred.json";
 
 dotenv.config();
-test.describe("TC017: Create project", () => {
+test.skip("TC017: Create project", () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(

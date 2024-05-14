@@ -1,3 +1,5 @@
+import { add_button_locator, title_text_locator, edit_button_locator, content_text_locator, remove_button_locator, save_button_all_locator } from "../../../locator/my-organization-locator/tender-document/change-tender-doc";
+
 export class ChangeTenderDocument {
   readonly page: any;
   readonly add_button_locator: any;
@@ -10,34 +12,37 @@ export class ChangeTenderDocument {
   constructor(page: any) {
     this.page = page;
     this.add_button_locator = page.locator(
-      "(//i[contains(@class,'ph ph-plus')])[1]"
+      add_button_locator
     );
     this.edit_button_locator = page.locator(
-      "(//i[contains(@class,'ph ph-pencil')])[1]"
+      edit_button_locator
     );
     this.title_text_locator = page.locator(
-      "(//input[@placeholder='Enter label'])[1]"
+      title_text_locator
     );
     this.content_text_locator = page.locator(
-      "(//textarea[@class='textarea'])[1]"
+      content_text_locator
     );
     this.save_button_locator = page
       .getByRole("button", { name: "Save" })
       .nth(1);
     this.remove_button_locator = page.locator(
-      "(//i[contains(@class,'ph ph-minus')])[1]"
+      remove_button_locator
     );
     this.save_button_all_locator = page.locator(
-      "//button[@class='button is-primary']//span[contains(text(),'Save')]"
+      save_button_all_locator
     );
   }
-  async changeElement() {
-    await this.add_button_locator.click();
+  async editTenderDocument() {
     await this.edit_button_locator.click();
-    await this.title_text_locator.first().fill("Dep");
-    await this.content_text_locator.first().fill("Dep");
+    await this.title_text_locator.first().fill("DOC-001");
+    await this.content_text_locator.first().fill("DOC-001");
     await this.save_button_locator.click();
     await this.save_button_all_locator.click();
     await this.page.waitForTimeout(2000);
   }
+  async createTenderDocument() {
+    await this.add_button_locator.click();
+  }
+
 }
